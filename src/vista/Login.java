@@ -4,6 +4,9 @@
  */
 package vista;
 
+import static modelos.Usuarios.contUsuario;
+import static modelos.Usuarios.usuarios;
+
 /**
  *
  * @author ayola
@@ -32,42 +35,25 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         btn_login_ingresar = new javax.swing.JButton();
+        txt_login_usuario = new javax.swing.JTextField();
         txt_login_contraseña = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 440));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 350));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Inicio de sesion");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 180, -1));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel7.setText("Inicio de sesion");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        jLabel8.setText("Usuario:");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        jLabel9.setText("Contraseña:");
-        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
-
-        btn_login_ingresar.setBackground(new java.awt.Color(255, 51, 51));
-        btn_login_ingresar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btn_login_ingresar.setBackground(new java.awt.Color(0, 102, 204));
         btn_login_ingresar.setForeground(new java.awt.Color(255, 255, 255));
         btn_login_ingresar.setText("Ingresar");
         btn_login_ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,23 +61,33 @@ public class Login extends javax.swing.JFrame {
                 btn_login_ingresarActionPerformed(evt);
             }
         });
-        jPanel5.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 130, -1));
+        jPanel4.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 180, -1));
+        jPanel4.add(txt_login_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 180, -1));
+        jPanel4.add(txt_login_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 180, -1));
 
-        txt_login_contraseña.setBorder(null);
-        jPanel5.add(txt_login_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 260, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Usuario");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, -1, -1));
 
-        jTextField1.setBorder(null);
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 260, -1));
-        jPanel5.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 157, 260, -1));
-        jPanel5.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 260, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Contraseña");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 390, 510));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 440));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,8 +97,21 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
+        String email = txt_login_usuario.getText();
+            String contraseña = txt_login_contraseña.getText();
+        
+        for (int i = 0; i < contUsuario; i++) {
+            if(usuarios[i].email.equals(email)&& usuarios[i].contraseña.equals(contraseña)){
+                panel_de_opciones panelOp = new panel_de_opciones();
+                panelOp.setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_btn_login_ingresarActionPerformed
 
     /**
@@ -133,15 +142,12 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_login_ingresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JTextField jTextField1;
     public javax.swing.JPasswordField txt_login_contraseña;
+    public javax.swing.JTextField txt_login_usuario;
     // End of variables declaration//GEN-END:variables
 }
