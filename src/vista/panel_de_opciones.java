@@ -17,6 +17,7 @@ public class panel_de_opciones extends javax.swing.JFrame {
      */
     public panel_de_opciones() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
