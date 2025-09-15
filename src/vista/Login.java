@@ -30,61 +30,54 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btn_login_ingresar = new javax.swing.JButton();
+        txt_login_usuario = new javax.swing.JTextField();
+        txt_login_contraseña = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txt_password_login = new javax.swing.JPasswordField();
-        txt_username_login = new javax.swing.JTextField();
-        btn_login_enter = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 350));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Iniciar sesion");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 170, -1));
+        jPanel5.setBackground(new java.awt.Color(102, 51, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Usuario:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setText("Inicio de sesion");
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Contraseña:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Usuario:");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
-        txt_password_login.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txt_password_login.addActionListener(new java.awt.event.ActionListener() {
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Contraseña:");
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+
+        btn_login_ingresar.setText("Ingresar");
+        btn_login_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_password_loginActionPerformed(evt);
+                btn_login_ingresarActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_password_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 150, -1));
+        jPanel5.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 130, -1));
+        jPanel5.add(txt_login_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, -1));
 
-        txt_username_login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txt_username_login.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        txt_username_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_username_loginActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txt_username_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 150, -1));
+        txt_login_contraseña.setText("jPasswordField1");
+        jPanel5.add(txt_login_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 110, -1));
 
-        btn_login_enter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_login_enter.setText("Ingresar");
-        jPanel2.add(btn_login_enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/cuenta (1).png"))); // NOI18N
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/contrasena (1).png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 60, 40));
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 320));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 340, 350));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,13 +93,9 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_username_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_username_loginActionPerformed
+    private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_username_loginActionPerformed
-
-    private void txt_password_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_password_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_password_loginActionPerformed
+    }//GEN-LAST:event_btn_login_ingresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,15 +123,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_login_enter;
+    public javax.swing.JButton btn_login_ingresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField txt_password_login;
-    private javax.swing.JTextField txt_username_login;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    public javax.swing.JPasswordField txt_login_contraseña;
+    public javax.swing.JTextField txt_login_usuario;
     // End of variables declaration//GEN-END:variables
 }
