@@ -6,6 +6,7 @@ package vista;
 
 import static modelos.Usuarios.contUsuario;
 import static modelos.Usuarios.usuarios;
+import javax.swing.*;
 
 /**
  *
@@ -76,10 +77,9 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
-        jLabel2.setText("jLabel2");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 440));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 450));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 450));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +87,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,6 +110,9 @@ public class Login extends javax.swing.JFrame {
                 panel_de_opciones panelOp = new panel_de_opciones();
                 panelOp.setVisible(true);
                 this.dispose();
+            }else {
+             JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas","Alerta!!!", HEIGHT);
+                
             }
         }
     }//GEN-LAST:event_btn_login_ingresarActionPerformed
