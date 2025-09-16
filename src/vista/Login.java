@@ -104,6 +104,11 @@ public class Login extends javax.swing.JFrame {
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
         String email = txt_login_usuario.getText();
             String contraseña = txt_login_contraseña.getText();
+            
+              if (email.isEmpty() || contraseña.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
+            
+        }
         
         for (int i = 0; i < contUsuario; i++) {
             if(usuarios[i].email.equals(email)&& usuarios[i].contraseña.equals(contraseña)){
