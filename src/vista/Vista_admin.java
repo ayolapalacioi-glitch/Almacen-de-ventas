@@ -72,19 +72,27 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel23 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -92,7 +100,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel26 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -319,13 +327,6 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel4);
 
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setText("Workers");
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 110, 50));
-
-        jTabbedPane1.addTab("tab2", jPanel5);
-
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setText("inventario");
@@ -334,7 +335,85 @@ public class Vista_admin extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab3", jPanel6);
         jTabbedPane1.addTab("tab4", jTabbedPane2);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel6.setText("Gestion de trabajadores");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 400, 50));
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel36.setText("Lista de trabajadores");
+        jPanel5.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        jPanel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "CARGO", "TELEFONO", "CORREO"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel25.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 310));
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel25.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        jPanel5.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 670, 310));
+
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel3.setText("TRABAJADORES");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 100, 20));
+
+        jTabbedPane1.addTab("tab2", jPanel5);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 700, 470));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/13b2c3592bf1ae617a3e742eabb551ec.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 700, 110));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -345,6 +424,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 220, 38));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel7.setOpaque(false);
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel7MouseClicked(evt);
@@ -359,15 +439,17 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("REGISTRO DE VENTAS");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 20));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/punto-de-venta.png"))); // NOI18N
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, -1));
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 220, 40));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
 
         jPanel9.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel9.setOpaque(false);
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel9MouseClicked(evt);
@@ -381,16 +463,17 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
-        jLabel3.setText("TRABAJADORES");
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 100, 20));
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/trabajadores.png"))); // NOI18N
         jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("TRABAJADORES");
+        jPanel9.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 50));
 
         jPanel10.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel10.setOpaque(false);
         jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel10MouseClicked(evt);
@@ -405,18 +488,20 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INICIO");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, 20));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/hogar.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/casa.png"))); // NOI18N
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 220, 40));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/avatar-de-usuario-con-marca-de-verificacion.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 70));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/administracion.png"))); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 70));
 
         jPanel26.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel26.setOpaque(false);
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel26MouseClicked(evt);
@@ -431,6 +516,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel38.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("INVENTARIO");
         jPanel26.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, 20));
 
@@ -439,22 +525,11 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel2.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 40));
 
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/114192587-wooden-background-with-a-tools-banner-for-a-hardware-store-and-a-building-company-screwdrivers.jpg"))); // NOI18N
+        jLabel40.setText("jLabel40");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -450, 220, 1190));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 580));
-
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 110, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 700, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -499,7 +574,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel10MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-       jTabbedPane1.setSelectedIndex(1);
+       jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
@@ -543,15 +618,15 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel24MouseExited
 
     private void jPanel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel26MouseClicked
-        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jPanel26MouseClicked
 
     private void jPanel26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel26MouseEntered
-        // TODO add your handling code here:
+       jPanel26.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_jPanel26MouseEntered
 
     private void jPanel26MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel26MouseExited
-        // TODO add your handling code here:
+        jPanel26.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel26MouseExited
 
     /**
@@ -619,9 +694,13 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -644,7 +723,9 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -652,7 +733,9 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
