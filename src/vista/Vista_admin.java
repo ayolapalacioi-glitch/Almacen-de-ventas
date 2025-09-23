@@ -81,6 +81,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel27 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
@@ -91,6 +92,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel28 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
@@ -109,6 +111,15 @@ public class Vista_admin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jTextField6 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel54 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -126,6 +137,9 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel26 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -228,6 +242,9 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel21.setForeground(new java.awt.Color(51, 255, 255));
         jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel21MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel21MouseEntered(evt);
             }
@@ -243,9 +260,9 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel16.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 80));
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel28.setText("Registrar Venta");
-        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, -1));
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 160, -1));
 
         jPanel4.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 140, 140));
 
@@ -256,14 +273,17 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel15.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 140, 140));
 
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setText("Ver Reportes");
-        jPanel15.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, -1));
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel27.setText("VER FACTURAS");
+        jPanel15.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, -1));
 
         jPanel24.setBackground(new java.awt.Color(0, 51, 255));
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel24.setForeground(new java.awt.Color(51, 255, 255));
         jPanel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel24MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel24MouseEntered(evt);
             }
@@ -287,6 +307,9 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel22.setForeground(new java.awt.Color(51, 255, 255));
         jPanel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel22MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel22MouseEntered(evt);
             }
@@ -306,11 +329,11 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 80));
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel29.setText("Agregar");
         jPanel17.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 140, 30));
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel31.setText("Producto");
         jPanel17.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
@@ -323,7 +346,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel19.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 140, 140));
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel30.setText("Trabajador");
         jPanel19.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, -1));
 
@@ -331,6 +354,9 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel23.setForeground(new java.awt.Color(51, 255, 255));
         jPanel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel23MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel23MouseEntered(evt);
             }
@@ -345,7 +371,7 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel19.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 80));
 
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel35.setText("Registrar");
         jPanel19.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, -1));
 
@@ -379,7 +405,7 @@ public class Vista_admin extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -411,6 +437,19 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/empresario.png"))); // NOI18N
         jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, 50));
 
         jTabbedPane1.addTab("tab2", jPanel5);
 
@@ -463,7 +502,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 680, 190));
 
         jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("ELIMINAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -474,7 +513,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 160, 70));
 
         jButton5.setBackground(new java.awt.Color(0, 153, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("AGREGAR");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -485,7 +524,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel6.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 160, 70));
 
         jButton6.setBackground(new java.awt.Color(153, 153, 153));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton6.setText("EDITAR");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -493,6 +532,19 @@ public class Vista_admin extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 160, 70));
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 70, 40));
 
         jTabbedPane1.addTab("tab3", jPanel6);
 
@@ -586,10 +638,12 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel28.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("CANCELAR");
         jPanel28.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 310, 60));
 
         jButton4.setBackground(new java.awt.Color(51, 153, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REGISTRAR VENTAS");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -600,7 +654,90 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel28.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 300, 60));
         jPanel28.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 500, 30));
 
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel28.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, 50));
+
         jTabbedPane1.addTab("tab4", jPanel28);
+
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel53.setText("COMPRAS REALIZADAS");
+        jPanel30.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "FACTURA DE COMPRA", "PROVEEDOR", "TOTAL"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(jTable4);
+
+        jPanel30.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 670, 110));
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel54.setText("VENTAS REALIZADAS");
+        jPanel30.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel30.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, 50));
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "FACTURA DE VENTA", "CLIENTE", "EMPLEADO", "TOTAL"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTable5);
+
+        jPanel30.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 670, 110));
+
+        jTabbedPane1.addTab("tab5", jPanel30);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 700, 470));
 
@@ -627,7 +764,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("MODO ADMIN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 220, 38));
@@ -647,15 +784,15 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("REGISTRO DE VENTAS");
+        jLabel4.setText("FACTURACION");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 20));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/punto-de-venta.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/factura.png"))); // NOI18N
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, -1));
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 220, 40));
 
         jPanel9.setBackground(new java.awt.Color(153, 153, 153));
         jPanel9.setOpaque(false);
@@ -675,6 +812,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/trabajadores.png"))); // NOI18N
         jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText("TRABAJADORES");
         jPanel9.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
@@ -696,7 +834,7 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("INICIO");
         jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, 20));
@@ -724,7 +862,7 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel38.setFont(new java.awt.Font("Sylfaen", 0, 12)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("INVENTARIO");
         jPanel26.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 100, 20));
@@ -733,6 +871,31 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel26.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, -1));
 
         jPanel2.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 40));
+
+        jPanel29.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel29.setOpaque(false);
+        jPanel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel29MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel29MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel29MouseExited(evt);
+            }
+        });
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel51.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel51.setText("REGISTRO DE VENTAS");
+        jPanel29.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, 20));
+
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/punto-de-venta.png"))); // NOI18N
+        jPanel29.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, -1));
+
+        jPanel2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/114192587-wooden-background-with-a-tools-banner-for-a-hardware-store-and-a-building-company-screwdrivers.jpg"))); // NOI18N
         jLabel40.setText("jLabel40");
@@ -787,7 +950,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        jTabbedPane1.setSelectedIndex(3);
+        jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseEntered
@@ -882,6 +1045,66 @@ public class Vista_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jPanel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseClicked
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jPanel21MouseClicked
+
+    private void jPanel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MouseClicked
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jPanel22MouseClicked
+
+    private void jPanel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel23MouseClicked
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jPanel23MouseClicked
+
+    private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
+     jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jPanel29MouseClicked
+
+    private void jPanel29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel29MouseEntered
+
+    private void jPanel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel29MouseExited
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jPanel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel24MouseClicked
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_jPanel24MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -919,11 +1142,15 @@ public class Vista_admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -971,6 +1198,10 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -996,7 +1227,9 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1006,10 +1239,14 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
