@@ -112,7 +112,7 @@ public class Login extends javax.swing.JFrame {
         
         for (int i = 0; i < contUsuario; i++) {
             if(usuarios[i].email.equals(email)&& usuarios[i].contraseña.equals(contraseña)){
-                panel_de_opciones panelOp = new panel_de_opciones();
+                Vista_usuario panelOp = new Vista_usuario();
                 panelOp.setVisible(true);
                 this.dispose();
             }else {
