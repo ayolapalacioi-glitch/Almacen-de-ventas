@@ -2,3 +2,4 @@
 "*.class" 
 "/dist/" 
 "nbproject/private/" 
+/dist/
