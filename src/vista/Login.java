@@ -4,6 +4,8 @@
  */
 package vista;
 
+import java.util.HashSet;
+import java.util.Set;
 import static modelos.Usuarios.contUsuario;
 import static modelos.Usuarios.usuarios;
 import javax.swing.*;
@@ -41,6 +43,7 @@ public class Login extends javax.swing.JFrame {
         txt_login_contraseña = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btn_login_registrarse = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,6 +58,7 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 180, -1));
 
         btn_login_ingresar.setBackground(new java.awt.Color(0, 102, 204));
+        btn_login_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_login_ingresar.setForeground(new java.awt.Color(255, 255, 255));
         btn_login_ingresar.setText("Ingresar");
         btn_login_ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +66,7 @@ public class Login extends javax.swing.JFrame {
                 btn_login_ingresarActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 180, -1));
+        jPanel4.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 180, 30));
         jPanel4.add(txt_login_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 180, -1));
         jPanel4.add(txt_login_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 180, -1));
 
@@ -75,6 +79,18 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
+
+        btn_login_registrarse.setBackground(new java.awt.Color(0, 102, 204));
+        btn_login_registrarse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_login_registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btn_login_registrarse.setText("Registrarse");
+        btn_login_registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_login_registrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_login_registrarseActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_login_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 190, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
@@ -122,6 +138,13 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_login_ingresarActionPerformed
 
+    private void btn_login_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_registrarseActionPerformed
+        Registro Ingresar = new Registro();
+        Ingresar.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btn_login_registrarseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -149,6 +172,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_login_ingresar;
+    private javax.swing.JButton btn_login_registrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
