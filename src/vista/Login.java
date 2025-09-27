@@ -44,6 +44,9 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btn_login_registrarse = new javax.swing.JButton();
+        chkUsuario = new javax.swing.JCheckBox();
+        chkProveedor = new javax.swing.JCheckBox();
+        chkAdmin = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,12 +64,13 @@ public class Login extends javax.swing.JFrame {
         btn_login_ingresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_login_ingresar.setForeground(new java.awt.Color(255, 255, 255));
         btn_login_ingresar.setText("Ingresar");
+        btn_login_ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_login_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_login_ingresarActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 180, 30));
+        jPanel4.add(btn_login_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 180, 30));
         jPanel4.add(txt_login_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 180, -1));
         jPanel4.add(txt_login_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 180, -1));
 
@@ -90,7 +94,37 @@ public class Login extends javax.swing.JFrame {
                 btn_login_registrarseActionPerformed(evt);
             }
         });
-        jPanel4.add(btn_login_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 190, 30));
+        jPanel4.add(btn_login_registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 190, 30));
+
+        chkUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        chkUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        chkUsuario.setText("Usuario");
+        chkUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel4.add(chkUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
+
+        chkProveedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        chkProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        chkProveedor.setText("Proovedor");
+        chkProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkProveedorActionPerformed(evt);
+            }
+        });
+        jPanel4.add(chkProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
+
+        chkAdmin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        chkAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        chkAdmin.setText("Admin");
+        chkAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAdminActionPerformed(evt);
+            }
+        });
+        jPanel4.add(chkAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
@@ -120,22 +154,35 @@ public class Login extends javax.swing.JFrame {
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
         String email = txt_login_usuario.getText();
             String contraseña = txt_login_contraseña.getText();
-            
-              if (email.isEmpty() || contraseña.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Rellena todos los campos");
-            
+             if (chkUsuario.isSelected()) {
+        if (email.equals("usuario@gmail.com") && contraseña.equals("123")) {
+            Vista_usuario vista = new Vista_usuario();
+            vista.setVisible(true);
+            vista.setLocationRelativeTo(null);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Usuario");
         }
+    } 
+    
+    // Validar si es Admin
+    else if (chkAdmin.isSelected()) {
+        if (email.equals("admin@gmail.com") && contraseña.equals("123")) {
+            Vista_admin vista = new Vista_admin();
+            vista.setVisible(true);
+            vista.setLocationRelativeTo(null);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Admin");
+        }
+    } 
+    
+    // Si no seleccionó nada
+    else {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar Usuario o Admin para ingresar");
+    }
         
-        for (int i = 0; i < contUsuario; i++) {
-            if(usuarios[i].email.equals(email)&& usuarios[i].contraseña.equals(contraseña)){
-                Vista_usuario panelOp = new Vista_usuario();
-                panelOp.setVisible(true);
-                this.dispose();
-            }else {
-             JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectas","Alerta!!!", HEIGHT);
-                
-            }
-        }
+    
     }//GEN-LAST:event_btn_login_ingresarActionPerformed
 
     private void btn_login_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_registrarseActionPerformed
@@ -144,6 +191,32 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btn_login_registrarseActionPerformed
+
+    private void chkUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkUsuarioActionPerformed
+        if (chkUsuario.isSelected()) {
+        chkProveedor.setSelected(false);
+        chkAdmin.setSelected(false);
+        
+        
+        
+    }
+
+    }//GEN-LAST:event_chkUsuarioActionPerformed
+
+    private void chkProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkProveedorActionPerformed
+        if (chkProveedor.isSelected()) {
+        chkUsuario.setSelected(false);
+        chkAdmin.setSelected(false);
+    }
+    }//GEN-LAST:event_chkProveedorActionPerformed
+
+    private void chkAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAdminActionPerformed
+        if (chkAdmin.isSelected()) {
+        chkUsuario.setSelected(false);
+        chkProveedor.setSelected(false);
+        
+        }
+    }//GEN-LAST:event_chkAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +246,9 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_login_ingresar;
     private javax.swing.JButton btn_login_registrarse;
+    private javax.swing.JCheckBox chkAdmin;
+    private javax.swing.JCheckBox chkProveedor;
+    private javax.swing.JCheckBox chkUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
