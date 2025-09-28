@@ -33,6 +33,10 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_de_opciones1 = new vista.panel_de_opciones();
+        panel_de_opciones2 = new vista.panel_de_opciones();
+        panel_de_opciones3 = new vista.panel_de_opciones();
+        panel_de_opciones4 = new vista.panel_de_opciones();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -77,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 440));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 450));
 
@@ -150,6 +154,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private vista.panel_de_opciones panel_de_opciones1;
+    private vista.panel_de_opciones panel_de_opciones2;
+    private vista.panel_de_opciones panel_de_opciones3;
+    private vista.panel_de_opciones panel_de_opciones4;
     public javax.swing.JPasswordField txt_login_contraseña;
     public javax.swing.JTextField txt_login_usuario;
     // End of variables declaration//GEN-END:variables
