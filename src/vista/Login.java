@@ -127,17 +127,15 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(chkAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (1).png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 440));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 800, 470));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 450));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         }
     } 
     
-    // Validar si es Admin
+   
     else if (chkAdmin.isSelected()) {
         if (email.equals("admin@gmail.com") && contraseña.equals("123")) {
             Vista_admin vista = new Vista_admin();
@@ -176,8 +174,17 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Admin");
         }
     } 
+    else if (chkProveedor.isSelected()) {
+        if (email.equals("proveedor@gmail.com") && contraseña.equals("123")) {
+            Provedores vista = new Provedores();
+            vista.setVisible(true);
+            vista.setLocationRelativeTo(null);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Admin");
+        }
+    } 
     
-    // Si no seleccionó nada
     else {
         JOptionPane.showMessageDialog(this, "Debe seleccionar Usuario o Admin para ingresar");
     }
