@@ -161,12 +161,11 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, 0, 220, -1));
 
-        jLabel5.setText("Benvenido admin");
+        jLabel5.setText("Bienvenido admin");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 110, 50));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/ferreteria.png"))); // NOI18N
-        jLabel8.setText("Ferreteria favi");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/inventario (1).png"))); // NOI18N
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
@@ -673,7 +672,7 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel53.setText("COMPRAS REALIZADAS");
-        jPanel30.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+        jPanel30.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -695,11 +694,11 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable4);
 
-        jPanel30.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 670, 110));
+        jPanel30.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 670, 110));
 
         jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel54.setText("VENTAS REALIZADAS");
-        jPanel30.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+        jPanel30.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -735,7 +734,7 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable5);
 
-        jPanel30.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 670, 110));
+        jPanel30.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 670, 110));
 
         jTabbedPane1.addTab("tab5", jPanel30);
 
@@ -845,7 +844,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 220, 40));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/administracion.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 70, 70));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 70, 70));
 
         jPanel26.setBackground(new java.awt.Color(153, 153, 153));
         jPanel26.setOpaque(false);
@@ -897,7 +896,7 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
 
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/114192587-wooden-background-with-a-tools-banner-for-a-hardware-store-and-a-building-company-screwdrivers.jpg"))); // NOI18N
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/cp9.jpg"))); // NOI18N
         jLabel40.setText("jLabel40");
         jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -450, 220, 1190));
 
