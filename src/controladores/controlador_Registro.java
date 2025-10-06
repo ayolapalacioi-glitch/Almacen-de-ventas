@@ -5,12 +5,9 @@ import modelos.Usuarios;
 import static modelos.Usuarios.*;
 
 public class controlador_Registro {
-    public static void registrarUsuario(String contraseña, String email, String rol){
+    public static void registrarUsuario(String contraseña, String email, String rol, String ciudad, int numero,String nombre){
+
         
-        Usuarios nuevoUsuario = new Usuarios();
-        nuevoUsuario.email= email;
-        nuevoUsuario.Rol= rol;
-        nuevoUsuario.contraseña= contraseña;
-        usuarios[contUsuario++] = nuevoUsuario;
     }
-}
+    }
+
