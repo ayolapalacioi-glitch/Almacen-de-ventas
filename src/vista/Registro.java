@@ -1,45 +1,23 @@
 
 package vista;
 
-import java.io.File;
+
+import controladores.controlador_Registro;
 import java.util.*;
 import javax. swing.*;
+import vista.Vista_usuario;
 public class Registro extends javax.swing.JFrame {
+     
+    
+  
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Registro.class.getName());
-       String barra  = File.separator;
-       String CrearUbica = System.getProperty("user.dir") + barra+ "DatosTxtUsuarios"+ barra;
-       // DatosTxtUsuarios nombre del block de notas
+       
     public Registro() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-  private void crear(){
-      String archivo = txt_registro_correo.getText()+ ".txt";
-      File CrearUbi = new File (CrearUbica);
-      File CrearArchivo = new File (CrearUbica +  archivo);
-      if (txt_registro_nombre.getText().equals("")) {
-          JOptionPane.showMessageDialog(rootPane,"Este usuario no existe");
-      }
-      else{
-          try {
-              if (CrearArchivo.exists()) {
-                  JOptionPane.showMessageDialog(rootPane,"Este usuario ya esta registrado");
-              }
-              else{
-                  CrearUbi.mkdirs();
-                  Formatter CrearForma = new Formatter(CrearUbica + archivo);
-                  CrearForma.format("%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n%s\r\n","Nombre:" + txt_registro_nombre.getText(),"Numero:" + txt_registro_numero.getText(),
-                  "Correo:"+ txt_registro_correo.getText(), "Rol:" + txt_registro_Rol.getText(),"Ciudad:" + txt_Ciudad_Registro.getText(),"Contraseña:"+
-                  txt_registro_contraseña.getText());
-                  CrearForma.close();
-                  JOptionPane.showMessageDialog(rootPane, "Registro existoso");
-              }
-          } catch (Exception e) {
-              JOptionPane.showMessageDialog(rootPane, "Registro incorrecto");
-          } 
-      }
-  }
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,42 +41,54 @@ public class Registro extends javax.swing.JFrame {
         btn_registro_confirmar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txt_registro_Rol = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        cmb_Rol = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Panel de registro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Nombre Completo:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Correo electronico:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Numero telefonico:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Ciudad de residencia:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 140, -1));
+
+        txt_registro_nombre.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txt_registro_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 130, -1));
-        jPanel1.add(txt_registro_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 130, -1));
+
+        txt_registro_correo.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(txt_registro_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 130, 30));
+
+        txt_registro_numero.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txt_registro_numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 130, -1));
+
+        txt_Ciudad_Registro.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txt_Ciudad_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 130, -1));
+
+        txt_registro_contraseña.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(txt_registro_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 130, -1));
 
         btn_registro_confirmar.setBackground(new java.awt.Color(0, 102, 255));
@@ -111,18 +101,18 @@ public class Registro extends javax.swing.JFrame {
                 btn_registro_confirmarActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_registro_confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 190, -1));
+        jPanel1.add(btn_registro_confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 190, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Contraseña:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 120, -1));
 
+        jLabel6.setBackground(new java.awt.Color(51, 51, 51));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Rol:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-        jPanel1.add(txt_registro_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 130, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -134,7 +124,16 @@ public class Registro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 160, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 160, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Proveedor", "Usuario" }));
+        jPanel2.add(cmb_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 130, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 370, 300));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/Diseño sin título (5).png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 450));
@@ -163,12 +162,14 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_registro_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registro_confirmarActionPerformed
-        crear();
-        txt_registro_nombre.setText("");
-        txt_registro_numero.setText("");
-        txt_registro_Rol.setText("");
-        txt_Ciudad_Registro.setText("");
-        txt_registro_contraseña.setText("");
+     controlador_Registro.registrarUsuario(
+    txt_registro_nombre,
+    txt_registro_correo,
+    txt_registro_numero,
+    txt_registro_contraseña,
+    cmb_Rol,
+    txt_Ciudad_Registro,
+    null);
     }//GEN-LAST:event_btn_registro_confirmarActionPerformed
 
     /**
@@ -198,6 +199,7 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_registro_confirmar;
+    private javax.swing.JComboBox<String> cmb_Rol;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -208,8 +210,8 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txt_Ciudad_Registro;
-    private javax.swing.JTextField txt_registro_Rol;
     private javax.swing.JPasswordField txt_registro_contraseña;
     private javax.swing.JTextField txt_registro_correo;
     private javax.swing.JTextField txt_registro_nombre;
