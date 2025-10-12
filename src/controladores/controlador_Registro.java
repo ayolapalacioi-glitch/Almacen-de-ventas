@@ -144,7 +144,7 @@ private static boolean usuarioExiste(String email) {
 
 
 private static boolean numeroExiste(String numero) {
-    // Verificar en admins
+  
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
         if (datos[3].equals(numero)) {
