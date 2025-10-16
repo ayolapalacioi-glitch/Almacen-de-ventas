@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
 public class Controlador_Producto {
     public Controlador_Producto() {}
     
-     // 🔸 Arrays simulando base de datos
     public static int[] idProducto = new int[100];
     public static String[] nombreProducto = new String[100];
     public static String[] categoria = new String[100];
@@ -22,7 +21,6 @@ public class Controlador_Producto {
     public static double[] precio = new double[100];
     public static int tam = 0;
 
-    // ➕ Crear producto
     public String insertarProductoArray(int id, String nom, String cat, int cant, double prec) {
         for (int i = 0; i < tam; i++) {
             if (idProducto[i] == id) {
@@ -39,18 +37,16 @@ public class Controlador_Producto {
         return "Product saved successfully.";
     }
 
-    // 🔍 Consultar producto por ID
     public int consultarProductoEspecifico(int id) {
-        int pos = consultarProductoEspecifico(id); // busca la posición
+        int pos = consultarProductoEspecifico(id);
         for (int i = 0; i < tam; i++) {
             if (idProducto[i] == id) {
                 return i;
             }
         }
-        return -1; // no encontrado
+        return -1;
     }
 
-    // ✏️ Actualizar producto
     public String actualizarProducto(int id, String nom, String cat, int cant, double prec) {
         int pos = consultarProductoEspecifico(id);
         if (pos != -1) {
@@ -64,7 +60,6 @@ public class Controlador_Producto {
         }
     }
 
-    // ❌ Eliminar producto
     public String eliminarProductoArray(int id) {
         int pos = consultarProductoEspecifico(id);
         if (pos != -1) {
@@ -82,9 +77,8 @@ public class Controlador_Producto {
         }
     }
 
-    // 📋 Mostrar todos los productos en la tabla
     public void mostrarProductosEnTabla(DefaultTableModel modelo) {
-        modelo.setRowCount(0); // Limpia la tabla antes de llenarla
+        modelo.setRowCount(0); 
         for (int i = 0; i < tam; i++) {
             Object[] fila = {
                 idProducto[i],
