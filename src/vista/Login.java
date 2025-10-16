@@ -148,7 +148,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
-       String email = txt_login_usuario.getText().trim();
+      String email = txt_login_usuario.getText().trim();
 String contraseña = txt_login_contraseña.getText().trim();
 
 // Validar que haya un checkbox seleccionado
@@ -157,16 +157,23 @@ if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelect
     return;
 }
 
-// Validar login con los datos del array
-String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
+// CAMBIO: Usar validarLoginCompleto
+String[] resultado = controlador_Registro.validarLoginCompleto(email, contraseña);
 
-if (rolEncontrado == null) {
+if (resultado == null) {
     JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
     return;
 }
 
+String rolEncontrado = resultado[0];  // El rol
+String emailUsuario = resultado[1];   // El email
+
 // Verificar que el rol seleccionado coincida con el rol del usuario
 if (chkUsuario.isSelected() && rolEncontrado.equals("Usuario")) {
+    // Guardar el email del usuario actual
+    controlador_Registro.setEmailUsuarioActual(emailUsuario);
+    
+    // Abrir vista de usuario
     Vista_usuario vista = new Vista_usuario();
     vista.setVisible(true);
     vista.setLocationRelativeTo(null);
