@@ -38,7 +38,6 @@ public class Controlador_Producto {
     }
 
     public int consultarProductoEspecifico(int id) {
-        int pos = consultarProductoEspecifico(id);
         for (int i = 0; i < tam; i++) {
             if (idProducto[i] == id) {
                 return i;
