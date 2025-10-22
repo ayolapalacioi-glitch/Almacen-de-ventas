@@ -1,33 +1,23 @@
-
 package vista;
-
 
 import static controladores.BuscarTrabajador.buscar;
 import static controladores.ListarTrabajadores.cargartrabajadores;
 import static controladores.RegistrarTrabajadores.registrarTrabajador;
+import static controladores.AutenticacionRegis.*;
 import java.awt.Color;
-
-
+import javax.swing.JOptionPane;
 
 public class Vista_admin extends javax.swing.JFrame {
 
-    
-    
     public Vista_admin() {
         initComponents();
-      this.setLocationRelativeTo(this); 
-     
-            
+        this.setLocationRelativeTo(this);
+
     }
 
-   
     @SuppressWarnings("unchecked")
-   
-            
-        
-       
-        
-    
+
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -792,6 +782,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 220, 38));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel7.setOpaque(false);
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -817,6 +808,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 220, 40));
 
         jPanel9.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel9.setOpaque(false);
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -842,6 +834,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 50));
 
         jPanel10.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel10.setOpaque(false);
         jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -870,6 +863,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 70, 70));
 
         jPanel26.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel26.setOpaque(false);
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -895,6 +889,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel2.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 40));
 
         jPanel29.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel29.setOpaque(false);
         jPanel29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -940,7 +935,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseEntered
-       jPanel10.setBackground(new Color(51, 51, 51));
+        jPanel10.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_jPanel10MouseEntered
 
     private void jPanel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseExited
@@ -952,15 +947,15 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel9MouseEntered
 
     private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
-       jPanel9.setBackground(new Color(153, 153, 153));
+        jPanel9.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel9MouseExited
 
     private void jPanel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseEntered
-       jPanel7.setBackground(new Color(51, 51, 51));
+        jPanel7.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_jPanel7MouseEntered
 
     private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
-       jPanel7.setBackground(new Color(153, 153, 153));
+        jPanel7.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel7MouseExited
 
     private void jPanel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseClicked
@@ -968,7 +963,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel10MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-       jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
@@ -980,7 +975,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel26MouseClicked
 
     private void jPanel26MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel26MouseEntered
-       jPanel26.setBackground(new Color(51, 51, 51));
+        jPanel26.setBackground(new Color(51, 51, 51));
     }//GEN-LAST:event_jPanel26MouseEntered
 
     private void jPanel26MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel26MouseExited
@@ -988,7 +983,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel26MouseExited
 
     private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
-     jTabbedPane1.setSelectedIndex(3);
+        jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_jPanel29MouseClicked
 
     private void jPanel29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseEntered
@@ -1049,7 +1044,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-       jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -1065,11 +1060,11 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jPanel23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel23MouseExited
-        jPanel23.setBackground(new Color (255, 153, 102));
+        jPanel23.setBackground(new Color(255, 153, 102));
     }//GEN-LAST:event_jPanel23MouseExited
 
     private void jPanel23MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel23MouseEntered
-        jPanel23.setBackground(new Color (153, 153, 153));
+        jPanel23.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel23MouseEntered
 
     private void jPanel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel23MouseClicked
@@ -1077,11 +1072,11 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel23MouseClicked
 
     private void jPanel22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MouseExited
-        jPanel22.setBackground(new Color (251, 51, 51));
+        jPanel22.setBackground(new Color(251, 51, 51));
     }//GEN-LAST:event_jPanel22MouseExited
 
     private void jPanel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MouseEntered
-        jPanel22.setBackground(new Color (153, 153, 153));
+        jPanel22.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel22MouseEntered
 
     private void jPanel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22MouseClicked
@@ -1089,15 +1084,15 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel22MouseClicked
 
     private void jLabel32MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseExited
-        jPanel23.setBackground(new Color (251, 51, 51));
+        jPanel23.setBackground(new Color(251, 51, 51));
     }//GEN-LAST:event_jLabel32MouseExited
 
     private void jPanel24MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel24MouseExited
-        jPanel24.setBackground(new Color (0, 51, 255 ));
+        jPanel24.setBackground(new Color(0, 51, 255));
     }//GEN-LAST:event_jPanel24MouseExited
 
     private void jPanel24MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel24MouseEntered
-        jPanel24.setBackground(new Color (153, 153 ,153));
+        jPanel24.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel24MouseEntered
 
     private void jPanel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel24MouseClicked
@@ -1105,11 +1100,11 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel24MouseClicked
 
     private void jPanel21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseExited
-        jPanel21.setBackground(new Color (51, 255, 255));
+        jPanel21.setBackground(new Color(51, 255, 255));
     }//GEN-LAST:event_jPanel21MouseExited
 
     private void jPanel21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseEntered
-        jPanel21.setBackground(new Color (153, 153, 153));
+        jPanel21.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jPanel21MouseEntered
 
     private void jPanel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseClicked
@@ -1117,14 +1112,19 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel21MouseClicked
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        int ale = (int)(Math.random()*90);
+        int ale = (int) (Math.random() * 90);
         String random = String.valueOf(ale);
         String nombre = txt_nombre.getText();
         String cargo = cbo_cargo.getSelectedItem().toString();
         String telefono = txt_telefono.getText();
         String correo = txt_correo.getText();
-        registrarTrabajador(random,nombre,cargo,telefono,correo);
-        cargartrabajadores();
+        if (authEmail(correo) && authTelefono(telefono)) {
+            registrarTrabajador(random, nombre, cargo, telefono, correo);
+            cargartrabajadores();
+            JOptionPane.showMessageDialog(null, "Registro exitoso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Informacion no valida");
+        }
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void txt_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefonoActionPerformed
