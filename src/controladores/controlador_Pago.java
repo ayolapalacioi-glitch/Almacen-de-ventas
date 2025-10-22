@@ -3,12 +3,14 @@ package controladores;
 
 
 public class controlador_Pago {
-     // Array para guardar las facturas
+  
     private static String[] facturas = new String[1000];
     private static int contadorFacturas = 0;
     
-    // Método para registrar la hora exacta del pago y generar número de factura
-    public static void registrarPago(javax.swing.JTextField jTextField1, javax.swing.JTextField jTextField3) {
+    
+    public static void registrarPago(javax.swing.JTextField jTextField1, javax.swing.JTextField jTextField3,
+                                      javax.swing.JTextField jTextField5, javax.swing.JTextField jTextField8,
+                                      javax.swing.JTextField jTextField9) {
         // Obtener la fecha y hora actual
         java.time.LocalDateTime ahora = java.time.LocalDateTime.now();
         
@@ -17,18 +19,71 @@ public class controlador_Pago {
             java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String horaFormateada = ahora.format(formato);
         
-        // Incrementar contador de facturas
+        
         contadorFacturas++;
         
-        // Generar número de factura (formato: FACT-0001, FACT-0002, etc.)
+        
         String numeroFactura = String.format("FACT-%04d", contadorFacturas);
         
-        // Guardar en el array
-        facturas[contadorFacturas - 1] = numeroFactura + "|" + horaFormateada;
-        
-        // Mostrar en los JTextField
-        jTextField1.setText(horaFormateada);      // Hora
-        jTextField3.setText(numeroFactura);        // Número de factura
+       
+        try {
+            
+            String valorTotalStr = jTextField5.getText().trim();
+            if (valorTotalStr.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(null, 
+                    "No hay un valor total para pagar", 
+                    "Error", 
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            double valorTotal = Double.parseDouble(valorTotalStr);
+            
+           
+            String dineroIngresadoStr = jTextField8.getText().trim();
+            if (dineroIngresadoStr.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(null, 
+                    "Por favor, ingrese el dinero recibido", 
+                    "Campo vacío", 
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            double dineroIngresado = Double.parseDouble(dineroIngresadoStr);
+            
+          
+            if (dineroIngresado < valorTotal) {
+                javax.swing.JOptionPane.showMessageDialog(null, 
+                    "El dinero ingresado no es suficiente.\nFaltan: $" + 
+                    String.format("%.2f", (valorTotal - dineroIngresado)), 
+                    "Dinero insuficiente", 
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+           
+            double vuelto = dineroIngresado - valorTotal;
+            
+          
+            facturas[contadorFacturas - 1] = numeroFactura + "|" + horaFormateada + "|" + valorTotal;
+            
+           
+            jTextField1.setText(horaFormateada);      // Hora
+            jTextField3.setText(numeroFactura);        // Número de factura
+            jTextField9.setText(String.format("%.2f", vuelto));  // Vuelto
+            
+           
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                "Pago realizado exitosamente\nVuelto: $" + String.format("%.2f", vuelto), 
+                "Pago Exitoso", 
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                "Por favor, ingrese valores numéricos válidos", 
+                "Error de formato", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     // Método alternativo: solo registrar la hora

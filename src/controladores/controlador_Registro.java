@@ -252,9 +252,9 @@ public static String validarLogin(String email, String password) {
     return null; 
 }
 
-// NUEVO MÉTODO: Valida el login y retorna el rol y el email
+
 public static String[] validarLoginCompleto(String email, String password) {
-    // Buscar en admins
+    
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
@@ -262,7 +262,7 @@ public static String[] validarLoginCompleto(String email, String password) {
         }
     }
     
-    // Buscar en proveedores
+   
     for (int i = 0; i < contadorProveedores; i++) {
         String[] datos = proveedores[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
@@ -270,7 +270,7 @@ public static String[] validarLoginCompleto(String email, String password) {
         }
     }
     
-    // Buscar en usuarios
+   
     for (int i = 0; i < contadorUsuarios; i++) {
         String[] datos = usuarios[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
@@ -281,7 +281,7 @@ public static String[] validarLoginCompleto(String email, String password) {
     return null;
 }
 
-// NUEVO MÉTODO: Obtiene todos los datos de un usuario por su email
+
 public static String[] obtenerDatosUsuario(String email) {
     // Buscar en admins
     for (int i = 0; i < contadorAdmins; i++) {
@@ -291,7 +291,7 @@ public static String[] obtenerDatosUsuario(String email) {
         }
     }
     
-    // Buscar en proveedores
+   
     for (int i = 0; i < contadorProveedores; i++) {
         String[] datos = proveedores[i].split("\\|");
         if (datos[1].equals(email)) {
@@ -299,7 +299,7 @@ public static String[] obtenerDatosUsuario(String email) {
         }
     }
     
-    // Buscar en usuarios
+   
     for (int i = 0; i < contadorUsuarios; i++) {
         String[] datos = usuarios[i].split("\\|");
         if (datos[1].equals(email)) {
@@ -307,7 +307,7 @@ public static String[] obtenerDatosUsuario(String email) {
         }
     }
     
-    return null; // Si no encuentra el usuario
+    return null; 
 }
 
 // Variable estática para guardar el email del usuario logueado
@@ -318,7 +318,7 @@ public static void setEmailUsuarioActual(String email) {
     emailUsuarioActual = email;
 }
 
-// NUEVO MÉTODO: Carga los datos del usuario logueado en los JTextField
+
 public static void cargarDatosUsuarioEnTextFields(javax.swing.JTextField jTextField2, 
                                                    javax.swing.JTextField jTextField4, 
                                                    javax.swing.JTextField jTextField6, 
@@ -337,29 +337,6 @@ public static void cargarDatosUsuarioEnTextFields(javax.swing.JTextField jTextFi
         jTextField7.setText("No disponible");
     }
 }
-
-
-// NUEVO MÉTODO: Registra la hora exacta del pago en el JTextField
-public static void registrarHoraPago(javax.swing.JTextField txtHoraPago) {
-    // Obtener la fecha y hora actual
-    java.time.LocalDateTime ahora = java.time.LocalDateTime.now();
-    
-    // Formatear la fecha y hora (puedes personalizar el formato)
-    java.time.format.DateTimeFormatter formato = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    String horaFormateada = ahora.format(formato);
-    
-    // Mostrar en el JTextField
-    txtHoraPago.setText(horaFormateada);
-}
-
-// VERSIÓN ALTERNATIVA: Solo muestra la hora (sin fecha)
-public static void registrarSoloHoraPago(javax.swing.JTextField txtHoraPago) {
-    java.time.LocalTime ahora = java.time.LocalTime.now();
-    java.time.format.DateTimeFormatter formato = java.time.format.DateTimeFormatter.ofPattern("HH:mm:ss");
-    String horaFormateada = ahora.format(formato);
-    txtHoraPago.setText(horaFormateada);
-}
-
 
 public static void cargarDatosEnTabla(javax.swing.JTable tabla) {
     javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabla.getModel();
