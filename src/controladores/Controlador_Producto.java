@@ -4,7 +4,7 @@
  */
 package controladores;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,81 +12,239 @@ import javax.swing.table.DefaultTableModel;
  * @author Ing_heskin
  */
 public class Controlador_Producto {
-    public Controlador_Producto() {}
     
-    public static int[] idProducto = new int[100];
-    public static String[] nombreProducto = new String[100];
-    public static String[] categoria = new String[100];
-    public static int[] cantidad = new int[100];
-    public static double[] precio = new double[100];
-    public static int tam = 0;
+    private static String[] idProducto = new String[100];
+    private static String[] nombre = new String[100];
+    private static double[] precio = new double[100];
+    private static int[] cantidad = new int[100];
+    private static String[] categoria = new String[100];
 
-    public String insertarProductoArray(int id, String nom, String cat, int cant, double prec) {
-        for (int i = 0; i < tam; i++) {
-            if (idProducto[i] == id) {
-                return "ID already exists.";
+    private static int contadorProductos = 0;
+
+    public static void registrarProducto(JTextField ID_Producto,
+                                         JTextField Name_Producto,
+                                         JTextField Precio,
+                                         JTextField Cantidad,
+                                         JTextField Categoria) {
+
+        try {
+            String id = ID_Producto.getText().trim();
+            String nom = Name_Producto.getText().trim();
+            String pre = Precio.getText().trim();
+            String cant = Cantidad.getText().trim();
+            String cat = Categoria.getText().trim();
+
+            
+            if (id.isEmpty() || nom.isEmpty() || pre.isEmpty() || cant.isEmpty() || cat.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor complete todos los campos.");
+                return;
+            }
+
+            double precioDouble = Double.parseDouble(pre);
+            int cantidadInt = Integer.parseInt(cant);
+
+            idProducto[contadorProductos] = id;
+            nombre[contadorProductos] = nom;
+            precio[contadorProductos] = precioDouble;
+            cantidad[contadorProductos] = cantidadInt;
+            categoria[contadorProductos] = cat;
+
+            contadorProductos++;
+
+            JOptionPane.showMessageDialog(null, "Producto guardado correctamente.");
+
+            ID_Producto.setText("");
+            Name_Producto.setText("");
+            Precio.setText("");
+            Cantidad.setText("");
+            Categoria.setText("");
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error: el precio o la cantidad no son válidos.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al registrar el producto: " + e.getMessage());
+        }
+    }
+    
+    public static void buscarProductoEditar(JTextField ID_Producto_2, JTextField Nombre_Producto_2,
+                                        JTextField Categoria_2, JTextField Cantidad_2, JTextField Precio_2) {
+
+    try {
+        String idBuscado = ID_Producto_2.getText().trim();
+        int pos = -1;
+
+        for (int i = 0; i < contadorProductos; i++) {
+            if (idProducto[i] != null && idProducto[i].equalsIgnoreCase(idBuscado)) {
+                pos = i;
+                break;
             }
         }
 
-        idProducto[tam] = id;
-        nombreProducto[tam] = nom;
-        categoria[tam] = cat;
-        cantidad[tam] = cant;
-        precio[tam] = prec;
-        tam++;
-        return "Product saved successfully.";
-    }
-
-    public int consultarProductoEspecifico(int id) {
-        for (int i = 0; i < tam; i++) {
-            if (idProducto[i] == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public String actualizarProducto(int id, String nom, String cat, int cant, double prec) {
-        int pos = consultarProductoEspecifico(id);
         if (pos != -1) {
-            nombreProducto[pos] = nom;
-            categoria[pos] = cat;
-            cantidad[pos] = cant;
-            precio[pos] = prec;
-            return "Product updated successfully.";
+            Nombre_Producto_2.setText(nombre[pos]);
+            Categoria_2.setText(categoria[pos]);
+            Cantidad_2.setText(String.valueOf(cantidad[pos]));
+            Precio_2.setText(String.valueOf(precio[pos]));
+            JOptionPane.showMessageDialog(null, "Producto encontrado!");
         } else {
-            return "Product not found.";
+            JOptionPane.showMessageDialog(null, "Producto no encontrado!");
+            Nombre_Producto_2.setText("");
+            Categoria_2.setText("");
+            Cantidad_2.setText("");
+            Precio_2.setText("");
         }
-    }
 
-    public String eliminarProductoArray(int id) {
-        int pos = consultarProductoEspecifico(id);
-        if (pos != -1) {
-            for (int i = pos; i < tam - 1; i++) {
-                idProducto[i] = idProducto[i + 1];
-                nombreProducto[i] = nombreProducto[i + 1];
-                categoria[i] = categoria[i + 1];
-                cantidad[i] = cantidad[i + 1];
-                precio[i] = precio[i + 1];
-            }
-            tam--;
-            return "Product deleted successfully.";
-        } else {
-            return "Product not found.";
-        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al buscar producto: " + e.getMessage());
     }
+}
 
-    public void mostrarProductosEnTabla(DefaultTableModel modelo) {
-        modelo.setRowCount(0); 
-        for (int i = 0; i < tam; i++) {
-            Object[] fila = {
+
+    public static void cargarDatosEnTabla(JTable tabla) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+
+        for (int i = 0; i < contadorProductos; i++) {
+            modelo.addRow(new Object[]{
                 idProducto[i],
-                nombreProducto[i],
+                nombre[i],
                 categoria[i],
                 cantidad[i],
                 precio[i]
-            };
-            modelo.addRow(fila);
+            });
+        }
+    }
+
+    public static void eliminarProducto(JTextField ID_Producto_3, JTable tabla,
+                                    JTextField ID, JTextField Nombre_Producto_3,
+                                    JTextField Categoria_3) {
+    try {
+        String idEliminar = ID_Producto_3.getText().trim();
+        boolean eliminado = false;
+
+        for (int i = 0; i < contadorProductos; i++) {
+            if (idProducto[i].equalsIgnoreCase(idEliminar)) {
+                
+                for (int j = i; j < contadorProductos - 1; j++) {
+                    idProducto[j] = idProducto[j + 1];
+                    nombre[j] = nombre[j + 1];
+                    categoria[j] = categoria[j + 1];
+                    precio[j] = precio[j + 1];
+                    cantidad[j] = cantidad[j + 1];
+                }
+
+                contadorProductos--;
+                eliminado = true;
+                break;
+            }
+        }
+
+        if (eliminado) {
+            cargarDatosEnTabla(tabla);
+            JOptionPane.showMessageDialog(null, "Producto eliminado correctamente.");
+
+            ID_Producto_3.setText("");
+            ID.setText("");
+            Nombre_Producto_3.setText("");
+            Categoria_3.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar el producto: " + e.getMessage());
+    }
+}
+
+    public static void buscarProductoEliminar(JTextField ID_Producto_3,
+                                          JTextField ID,
+                                          JTextField Nombre_Producto_3,
+                                          JTextField Categoria_3) {
+
+    try {
+        String idBuscado = ID_Producto_3.getText().trim();
+        boolean encontrado = false;
+
+        for (int i = 0; i < contadorProductos; i++) {
+            if (idProducto[i].equalsIgnoreCase(idBuscado)) {
+                ID.setText(idProducto[i]);
+                Nombre_Producto_3.setText(nombre[i]);
+                Categoria_3.setText(categoria[i]);
+
+                JOptionPane.showMessageDialog(null, "Producto encontrado para eliminar.");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al buscar el producto: " + e.getMessage());
+    }
+}
+
+    
+    public static void actualizarProducto(JTable tabla,
+                                      JTextField ID_Producto_2,
+                                      JTextField Nombre_Producto_2,
+                                      JTextField Precio_2,
+                                      JTextField Cantidad_2,
+                                      JTextField Categoria_2) {
+
+    String idBuscado = ID_Producto_2.getText().trim();
+    boolean encontrado = false;
+
+    for (int i = 0; i < contadorProductos; i++) {
+        if (idProducto[i].equalsIgnoreCase(idBuscado)) {
+            try {
+                
+                nombre[i] = Nombre_Producto_2.getText().trim();
+                precio[i] = Double.parseDouble(Precio_2.getText().trim());
+                cantidad[i] = Integer.parseInt(Cantidad_2.getText().trim());
+                categoria[i] = Categoria_2.getText().trim();
+
+                JOptionPane.showMessageDialog(null, "Producto actualizado correctamente.");
+
+                cargarDatosEnTabla(tabla);
+
+                ID_Producto_2.setText("");
+                Nombre_Producto_2.setText("");
+                Precio_2.setText("");
+                Cantidad_2.setText("");
+                Categoria_2.setText("");
+
+                encontrado = true;
+                break;
+
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Error: formato de número inválido.");
+                return;
+            }
+        }
+    }
+
+    if (!encontrado) {
+        JOptionPane.showMessageDialog(null, "No se encontró ningún producto con ese ID.");
+    }
+}
+
+    public static void cargarProductoSeleccionado(JTable tabla,
+                                                  JTextField ID_Producto,
+                                                  JTextField Name_Producto,
+                                                  JTextField Precio,
+                                                  JTextField Cantidad,
+                                                  JTextField Categoria) {
+
+        int fila = tabla.getSelectedRow();
+        if (fila != -1) {
+            ID_Producto.setText(idProducto[fila]);
+            Name_Producto.setText(nombre[fila]);
+            Precio.setText(String.valueOf(precio[fila]));
+            Cantidad.setText(String.valueOf(cantidad[fila]));
+            Categoria.setText(categoria[fila]);
         }
     }
 }

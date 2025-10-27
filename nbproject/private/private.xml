@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/vista/Provedores.java</file>
-            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/controladores/Datos_Tabla_Proveedores.java</file>
-            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/controladores/controlador_Registro.java</file>
+            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/controladores/Controlador_Producto.java</file>
+            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/modelos/Productos.java</file>
+            <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/vista/Productos.java</file>
         </group>
     </open-files>
 </project-private>
