@@ -4,10 +4,8 @@
  */
 package vista;
 
-import java.util.HashSet;
-import java.util.Set;
-import static modelos.Usuarios.contUsuario;
-import static modelos.Usuarios.usuarios;
+import controladores.controlador_Registro;
+
 import javax.swing.*;
 
 /**
@@ -150,46 +148,46 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
-        String email = txt_login_usuario.getText();
-            String contraseña = txt_login_contraseña.getText();
-             if (chkUsuario.isSelected()) {
-        if (email.equals("usuario@gmail.com") && contraseña.equals("123")) {
-            Vista_usuario vista = new Vista_usuario();
-            vista.setVisible(true);
-            vista.setLocationRelativeTo(null);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Usuario");
-        }
-    } 
-    
-   
-    else if (chkAdmin.isSelected()) {
-        if (email.equals("admin@gmail.com") && contraseña.equals("123")) {
-            Vista_admin vista = new Vista_admin();
-            vista.setVisible(true);
-            vista.setLocationRelativeTo(null);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Admin");
-        }
-    } 
-    else if (chkProveedor.isSelected()) {
-        if (email.equals("proveedor@gmail.com") && contraseña.equals("123")) {
-            Provedores vista = new Provedores();
-            vista.setVisible(true);
-            vista.setLocationRelativeTo(null);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos para Admin");
-        }
-    } 
-    
-    else {
-        JOptionPane.showMessageDialog(this, "Debe seleccionar Usuario o Admin para ingresar");
-    }
-        
-    
+       String email = txt_login_usuario.getText().trim();
+String contraseña = txt_login_contraseña.getText().trim();
+
+// Validar que haya un checkbox seleccionado
+if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelected()) {
+    JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de usuario para ingresar");
+    return;
+}
+
+// Validar login con los datos del array
+String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
+
+if (rolEncontrado == null) {
+    JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
+    return;
+}
+
+// Verificar que el rol seleccionado coincida con el rol del usuario
+if (chkUsuario.isSelected() && rolEncontrado.equals("Usuario")) {
+    Vista_usuario vista = new Vista_usuario();
+    vista.setVisible(true);
+    vista.setLocationRelativeTo(null);
+    this.dispose();
+} 
+else if (chkAdmin.isSelected() && rolEncontrado.equals("Admin")) {
+    Vista_admin vista = new Vista_admin();
+    vista.setVisible(true);
+    vista.setLocationRelativeTo(null);
+    this.dispose();
+} 
+else if (chkProveedor.isSelected() && rolEncontrado.equals("Proveedor")) {
+    Provedores vista = new Provedores();
+    vista.setVisible(true);
+    vista.setLocationRelativeTo(null);
+    this.dispose();
+} 
+else {
+    JOptionPane.showMessageDialog(this, 
+        "El rol seleccionado no coincide con sus credenciales.\nUsted está registrado como: " + rolEncontrado);
+}
     }//GEN-LAST:event_btn_login_ingresarActionPerformed
 
     private void btn_login_registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_registrarseActionPerformed

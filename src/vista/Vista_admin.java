@@ -6,6 +6,7 @@ import static controladores.RegistrarTrabajadores.registrarTrabajador;
 import static controladores.AutenticacionRegis.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import controladores.Controlador_Producto.*;
 
 public class Vista_admin extends javax.swing.JFrame {
 
@@ -90,6 +91,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -516,15 +518,22 @@ public class Vista_admin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "CANTIDAD", "PRECIO"
+                "ID", "NOMBRE", "Categoria", "Cantidad", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(jTable2);
@@ -575,6 +584,14 @@ public class Vista_admin extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 70, 40));
+
+        jButton2.setText("Actualizar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
 
         jTabbedPane1.addTab("tab3", jPanel6);
 
@@ -1139,6 +1156,10 @@ public class Vista_admin extends javax.swing.JFrame {
         cargartrabajadores();
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1183,6 +1204,7 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
