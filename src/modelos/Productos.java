@@ -5,10 +5,6 @@
 package modelos;
 import controladores.Controlador_Producto;
 
-/**
- *
- * @author Ing_heskin
- */
 public class Productos {
     
     private static int id_producto;
