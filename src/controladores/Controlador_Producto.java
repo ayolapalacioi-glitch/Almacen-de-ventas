@@ -9,13 +9,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class Controlador_Producto {
     
-    private static String[] idProducto = new String[100];
-    private static String[] nombre = new String[100];
-    private static double[] precio = new double[100];
-    private static int[] cantidad = new int[100];
-    private static String[] categoria = new String[100];
+    public static String[] idProducto = new String[100];
+    public static String[] nombre = new String[100];
+    public static double[] precio = new double[100];
+    public static int[] cantidad = new int[100];
+    public static String[] categoria = new String[100];
 
-    private static int contadorProductos = 0;
+    public static int contadorProductos = 0;
 
     public static void registrarProducto(JTextField ID_Producto,
                                      JTextField Name_Producto,
