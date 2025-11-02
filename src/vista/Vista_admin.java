@@ -4,15 +4,18 @@ import static controladores.BuscarTrabajador.buscar;
 import static controladores.ListarTrabajadores.cargartrabajadores;
 import static controladores.RegistrarTrabajadores.registrarTrabajador;
 import static controladores.AutenticacionRegis.*;
+import controladores.Controlador_Producto;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import controladores.Controlador_Producto.*;
+
+
 
 public class Vista_admin extends javax.swing.JFrame {
 
     public Vista_admin() {
         initComponents();
         this.setLocationRelativeTo(this);
+       
 
     }
 
@@ -86,9 +89,8 @@ public class Vista_admin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Inventario_table = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -113,6 +115,23 @@ public class Vista_admin extends javax.swing.JFrame {
         btn_agregar = new javax.swing.JButton();
         cbo_cargo = new javax.swing.JComboBox<>();
         jPanel32 = new javax.swing.JPanel();
+        txt_Categoria = new javax.swing.JTextField();
+        txt_Precio = new javax.swing.JTextField();
+        txt_Cantidad = new javax.swing.JTextField();
+        txt_NombreNuevo = new javax.swing.JTextField();
+        txt_Nombre = new javax.swing.JTextField();
+        txt_PrecioNuevo = new javax.swing.JTextField();
+        txt_CategoriaNueva = new javax.swing.JTextField();
+        txt_CantidadNueva = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         jPanel33 = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jPanel35 = new javax.swing.JPanel();
@@ -513,7 +532,7 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 580, 40));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Inventario_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -524,19 +543,12 @@ public class Vista_admin extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Object.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Inventario_table);
 
         jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 680, 190));
 
@@ -551,26 +563,20 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 160, 70));
 
-        jButton5.setBackground(new java.awt.Color(0, 153, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("AGREGAR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 160, 70));
-
         jButton6.setBackground(new java.awt.Color(153, 153, 153));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton6.setText("EDITAR");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 160, 70));
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, 70));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -591,7 +597,7 @@ public class Vista_admin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
         jTabbedPane1.addTab("tab3", jPanel6);
 
@@ -716,16 +722,61 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel31);
 
-        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
-        jPanel32.setLayout(jPanel32Layout);
-        jPanel32Layout.setHorizontalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        jPanel32Layout.setVerticalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
-        );
+        jPanel32.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_Categoria.setFocusable(false);
+        txt_Categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_CategoriaActionPerformed(evt);
+            }
+        });
+        jPanel32.add(txt_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 170, -1));
+
+        txt_Precio.setFocusable(false);
+        jPanel32.add(txt_Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 170, -1));
+
+        txt_Cantidad.setFocusable(false);
+        jPanel32.add(txt_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 170, -1));
+
+        txt_NombreNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NombreNuevoActionPerformed(evt);
+            }
+        });
+        jPanel32.add(txt_NombreNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 140, -1));
+
+        txt_Nombre.setFocusable(false);
+        jPanel32.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 170, -1));
+        jPanel32.add(txt_PrecioNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, 140, -1));
+        jPanel32.add(txt_CategoriaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 140, -1));
+        jPanel32.add(txt_CantidadNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 150, 140, -1));
+
+        jButton4.setText("APLICAR CAMBIOS");
+        jPanel32.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, 30));
+
+        jLabel14.setText("NOMBRE");
+        jPanel32.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+
+        jLabel44.setText("CATEGORIA");
+        jPanel32.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
+
+        jLabel45.setText("CANTIDAD");
+        jPanel32.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+
+        jLabel46.setText("PRECIO");
+        jPanel32.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+
+        jLabel47.setText("NUEVO NOMBRE");
+        jPanel32.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+
+        jLabel48.setText("NUEVA CATEGORIA");
+        jPanel32.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+
+        jLabel49.setText("NUEVA CANTIDAD");
+        jPanel32.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
+
+        jLabel50.setText("NUEVO PRECIO");
+        jPanel32.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
 
         jTabbedPane1.addTab("tab7", jPanel32);
 
@@ -1031,10 +1082,6 @@ public class Vista_admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1160,6 +1207,18 @@ public class Vista_admin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+jTabbedPane1.setSelectedIndex(5);        
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void txt_CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_CategoriaActionPerformed
+
+    private void txt_NombreNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NombreNuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1196,6 +1255,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JTable Inventario_table;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JComboBox<String> cbo_cargo;
     private javax.swing.JButton jButton1;
@@ -1206,7 +1266,7 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -1215,6 +1275,7 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1247,7 +1308,14 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -1301,11 +1369,18 @@ public class Vista_admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JTable tabla_traba;
+    private javax.swing.JTextField txt_Cantidad;
+    private javax.swing.JTextField txt_CantidadNueva;
+    private javax.swing.JTextField txt_Categoria;
+    private javax.swing.JTextField txt_CategoriaNueva;
+    private javax.swing.JTextField txt_Nombre;
+    private javax.swing.JTextField txt_NombreNuevo;
+    private javax.swing.JTextField txt_Precio;
+    private javax.swing.JTextField txt_PrecioNuevo;
     private javax.swing.JTextField txt_buscar;
     public static javax.swing.JLabel txt_conT;
     private javax.swing.JTextField txt_correo;
