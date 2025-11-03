@@ -68,9 +68,9 @@ public class controlador_Pago {
             facturas[contadorFacturas - 1] = numeroFactura + "|" + horaFormateada + "|" + valorTotal;
             
            
-            jTextField1.setText(horaFormateada);      // Hora
-            jTextField3.setText(numeroFactura);        // Número de factura
-            jTextField9.setText(String.format("%.2f", vuelto));  // Vuelto
+            jTextField1.setText(horaFormateada);     
+            jTextField3.setText(numeroFactura);        
+            jTextField9.setText(String.format("%.2f", vuelto)); 
             
            
             javax.swing.JOptionPane.showMessageDialog(null, 
@@ -86,7 +86,7 @@ public class controlador_Pago {
         }
     }
     
-    // Método alternativo: solo registrar la hora
+  
     public static void registrarHoraPago(javax.swing.JTextField jTextField1) {
         java.time.LocalDateTime ahora = java.time.LocalDateTime.now();
         java.time.format.DateTimeFormatter formato = 
@@ -95,17 +95,17 @@ public class controlador_Pago {
         jTextField1.setText(horaFormateada);
     }
     
-    // Obtener el array de facturas
+   
     public static String[] getFacturas() {
         return facturas;
     }
     
-    // Obtener el contador de facturas
+   
     public static int getContadorFacturas() {
         return contadorFacturas;
     }
     
-    // Obtener la última factura registrada
+   
     public static String getUltimaFactura() {
         if (contadorFacturas > 0) {
             return facturas[contadorFacturas - 1];

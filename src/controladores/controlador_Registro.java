@@ -283,11 +283,11 @@ public static String[] validarLoginCompleto(String email, String password) {
 
 
 public static String[] obtenerDatosUsuario(String email) {
-    // Buscar en admins
+   
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
         if (datos[1].equals(email)) {
-            return datos; // Retorna [nombre, email, password, numero, ciudad]
+            return datos; 
         }
     }
     
@@ -310,10 +310,10 @@ public static String[] obtenerDatosUsuario(String email) {
     return null; 
 }
 
-// Variable estática para guardar el email del usuario logueado
+
 private static String emailUsuarioActual = "";
 
-// Método para guardar el email cuando el usuario hace login
+
 public static void setEmailUsuarioActual(String email) {
     emailUsuarioActual = email;
 }
@@ -326,10 +326,10 @@ public static void cargarDatosUsuarioEnTextFields(javax.swing.JTextField jTextFi
     String[] datosUsuario = obtenerDatosUsuario(emailUsuarioActual);
     
     if (datosUsuario != null) {
-        jTextField2.setText(datosUsuario[0]);    // Nombre
-        jTextField4.setText(datosUsuario[1]);     // Email
-        jTextField6.setText(datosUsuario[4]);    // Ciudad
-        jTextField7.setText(datosUsuario[3]);  // Número
+        jTextField2.setText(datosUsuario[0]);    
+        jTextField4.setText(datosUsuario[1]);     
+        jTextField6.setText(datosUsuario[4]);   
+        jTextField7.setText(datosUsuario[3]);  
     } else {
         jTextField2.setText("No disponible");
         jTextField4.setText("No disponible");
@@ -340,17 +340,16 @@ public static void cargarDatosUsuarioEnTextFields(javax.swing.JTextField jTextFi
 
 public static void cargarDatosEnTabla(javax.swing.JTable tabla) {
     javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabla.getModel();
-    modelo.setRowCount(0); // Limpiar la tabla
-    
+    modelo.setRowCount(0); 
 
     for (int i = 0; i < contadorProveedores; i++) {
         String[] datos = proveedores[i].split("\\|");
         modelo.addRow(new Object[]{
-            datos[0],  // Nombre
-            datos[1],  // Email
-            datos[3],  // Número
-            datos[4],  // Ciudad
-            "Proveedor" // Rol
+            datos[0],  
+            datos[1],  
+            datos[3],  
+            datos[4],  
+            "Proveedor" 
         });
     }
     
