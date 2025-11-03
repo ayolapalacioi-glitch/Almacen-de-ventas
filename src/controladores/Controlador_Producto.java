@@ -7,64 +7,77 @@ package controladores;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Ing_heskin
- */
 public class Controlador_Producto {
     
-    private static String[] idProducto = new String[100];
-    private static String[] nombre = new String[100];
-    private static double[] precio = new double[100];
-    private static int[] cantidad = new int[100];
-    private static String[] categoria = new String[100];
+    public static String[] idProducto = new String[100];
+    public static String[] nombre = new String[100];
+    public static double[] precio = new double[100];
+    public static int[] cantidad = new int[100];
+    public static String[] categoria = new String[100];
 
-    private static int contadorProductos = 0;
+    public static int contadorProductos = 0;
 
     public static void registrarProducto(JTextField ID_Producto,
-                                         JTextField Name_Producto,
-                                         JTextField Precio,
-                                         JTextField Cantidad,
-                                         JTextField Categoria) {
+                                     JTextField Name_Producto,
+                                     JTextField Precio,
+                                     JTextField Cantidad,
+                                     JTextField Categoria) {
 
-        try {
-            String id = ID_Producto.getText().trim();
-            String nom = Name_Producto.getText().trim();
-            String pre = Precio.getText().trim();
-            String cant = Cantidad.getText().trim();
-            String cat = Categoria.getText().trim();
+    try {
+        String id = ID_Producto.getText().trim();
+        String nom = Name_Producto.getText().trim();
+        String pre = Precio.getText().trim();
+        String cant = Cantidad.getText().trim();
+        String cat = Categoria.getText().trim();
 
-            
-            if (id.isEmpty() || nom.isEmpty() || pre.isEmpty() || cant.isEmpty() || cat.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Por favor complete todos los campos.");
+        if (id.isEmpty() || nom.isEmpty() || pre.isEmpty() || cant.isEmpty() || cat.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos.");
+            return;
+        }
+
+        for (int i = 0; i < contadorProductos; i++) {
+            if (idProducto[i].equalsIgnoreCase(id)) {
+                JOptionPane.showMessageDialog(null, "El ID del producto ya existe. Ingrese otro.");
                 return;
             }
-
-            double precioDouble = Double.parseDouble(pre);
-            int cantidadInt = Integer.parseInt(cant);
-
-            idProducto[contadorProductos] = id;
-            nombre[contadorProductos] = nom;
-            precio[contadorProductos] = precioDouble;
-            cantidad[contadorProductos] = cantidadInt;
-            categoria[contadorProductos] = cat;
-
-            contadorProductos++;
-
-            JOptionPane.showMessageDialog(null, "Producto guardado correctamente.");
-
-            ID_Producto.setText("");
-            Name_Producto.setText("");
-            Precio.setText("");
-            Cantidad.setText("");
-            Categoria.setText("");
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Error: el precio o la cantidad no son válidos.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al registrar el producto: " + e.getMessage());
         }
+
+        double precioDouble;
+        int cantidadInt;
+        try {
+            precioDouble = Double.parseDouble(pre);
+            cantidadInt = Integer.parseInt(cant);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error: el precio o la cantidad deben ser numéricos.");
+            return;
+        }
+
+        if (precioDouble <= 0 || cantidadInt < 0) {
+            JOptionPane.showMessageDialog(null, "El precio debe ser mayor a 0 y la cantidad no puede ser negativa.");
+            return;
+        }
+
+        idProducto[contadorProductos] = id;
+        nombre[contadorProductos] = nom;
+        precio[contadorProductos] = precioDouble;
+        cantidad[contadorProductos] = cantidadInt;
+        categoria[contadorProductos] = cat;
+
+        contadorProductos++;
+
+        JOptionPane.showMessageDialog(null, "Producto guardado correctamente.");
+
+        ID_Producto.setText("");
+        Name_Producto.setText("");
+        Precio.setText("");
+        Cantidad.setText("");
+        Categoria.setText("");
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al registrar el producto: " + e.getMessage());
     }
+}
+
     
     public static void buscarProductoEditar(JTextField ID_Producto_2, JTextField Nombre_Producto_2,
                                         JTextField Categoria_2, JTextField Cantidad_2, JTextField Precio_2) {
@@ -120,11 +133,22 @@ public class Controlador_Producto {
                                     JTextField Categoria_3) {
     try {
         String idEliminar = ID_Producto_3.getText().trim();
+
+        if (contadorProductos == 0) {
+            JOptionPane.showMessageDialog(null, "No hay productos registrados para eliminar.");
+            return;
+        }
+
+        if (idEliminar.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese el ID del producto a eliminar.");
+            return;
+        }
+
         boolean eliminado = false;
 
         for (int i = 0; i < contadorProductos; i++) {
             if (idProducto[i].equalsIgnoreCase(idEliminar)) {
-                
+
                 for (int j = i; j < contadorProductos - 1; j++) {
                     idProducto[j] = idProducto[j + 1];
                     nombre[j] = nombre[j + 1];
@@ -148,7 +172,7 @@ public class Controlador_Producto {
             Nombre_Producto_3.setText("");
             Categoria_3.setText("");
         } else {
-            JOptionPane.showMessageDialog(null, "Producto no encontrado.");
+            JOptionPane.showMessageDialog(null, "Producto no encontrado. Verifique el ID ingresado.");
         }
 
     } catch (Exception e) {
@@ -194,13 +218,33 @@ public class Controlador_Producto {
                                       JTextField Cantidad_2,
                                       JTextField Categoria_2) {
 
+    if (contadorProductos == 0) {
+        JOptionPane.showMessageDialog(null, "No hay productos registrados para actualizar.");
+        return;
+    }
+
     String idBuscado = ID_Producto_2.getText().trim();
+
+    if (idBuscado.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese el ID del producto que desea actualizar.");
+        return;
+    }
+
     boolean encontrado = false;
 
     for (int i = 0; i < contadorProductos; i++) {
         if (idProducto[i].equalsIgnoreCase(idBuscado)) {
             try {
                 
+                if (Nombre_Producto_2.getText().trim().isEmpty() ||
+                    Precio_2.getText().trim().isEmpty() ||
+                    Cantidad_2.getText().trim().isEmpty() ||
+                    Categoria_2.getText().trim().isEmpty()) {
+
+                    JOptionPane.showMessageDialog(null, "Por favor complete todos los campos antes de actualizar.");
+                    return;
+                }
+
                 nombre[i] = Nombre_Producto_2.getText().trim();
                 precio[i] = Double.parseDouble(Precio_2.getText().trim());
                 cantidad[i] = Integer.parseInt(Cantidad_2.getText().trim());
@@ -220,7 +264,10 @@ public class Controlador_Producto {
                 break;
 
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Error: formato de número inválido.");
+                JOptionPane.showMessageDialog(null, "Error: el precio o la cantidad no tienen un formato válido.");
+                return;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage());
                 return;
             }
         }

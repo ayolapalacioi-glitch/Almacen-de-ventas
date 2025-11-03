@@ -4,7 +4,9 @@ import static controladores.BuscarTrabajador.buscar;
 import static controladores.ListarTrabajadores.cargartrabajadores;
 import static controladores.RegistrarTrabajadores.registrarTrabajador;
 import static controladores.AutenticacionRegis.*;
+import static controladores.ControladorPro.enlistarProductoAdmin;
 import controladores.Controlador_Producto;
+import static controladores.RegistrarTrabajadores.eliminarTrabajador;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -15,7 +17,7 @@ public class Vista_admin extends javax.swing.JFrame {
     public Vista_admin() {
         initComponents();
         this.setLocationRelativeTo(this);
-       
+       enlistarProductoAdmin();
 
     }
 
@@ -155,6 +157,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel29 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -752,6 +755,11 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel32.add(txt_CantidadNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 150, 140, -1));
 
         jButton4.setText("APLICAR CAMBIOS");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel32.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, 30));
 
         jLabel14.setText("NOMBRE");
@@ -767,16 +775,16 @@ public class Vista_admin extends javax.swing.JFrame {
         jPanel32.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
         jLabel47.setText("NUEVO NOMBRE");
-        jPanel32.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jPanel32.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
         jLabel48.setText("NUEVA CATEGORIA");
-        jPanel32.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+        jPanel32.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, -1));
 
         jLabel49.setText("NUEVA CANTIDAD");
-        jPanel32.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, -1, -1));
+        jPanel32.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
 
         jLabel50.setText("NUEVO PRECIO");
-        jPanel32.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+        jPanel32.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
         jTabbedPane1.addTab("tab7", jPanel32);
 
@@ -982,6 +990,14 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 220, 40));
 
+        jButton5.setText("REGRESAR AL INICIO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, 40));
+
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/cp9.jpg"))); // NOI18N
         jLabel40.setText("jLabel40");
         jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -450, 220, 1190));
@@ -1079,7 +1095,13 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+ int seleccion = Inventario_table.getSelectedRow(); 
+        if(seleccion>-1){
+            jTabbedPane1.setSelectedIndex(5);
+        }else{
+            JOptionPane.showMessageDialog(null, "seleccion un producto para editar");
+        }
+            
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1095,7 +1117,15 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+int seleccion = tabla_traba.getSelectedRow();  
+ if(seleccion>-1){
+    eliminarTrabajador(seleccion);
+cargartrabajadores(); 
+ }else{
+     JOptionPane.showMessageDialog(null, "Elija A Un Trabajador De La Lista");
+ }
+
+
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void txt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscarActionPerformed
@@ -1208,7 +1238,7 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-jTabbedPane1.setSelectedIndex(5);        
+        
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void txt_CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CategoriaActionPerformed
@@ -1218,6 +1248,17 @@ jTabbedPane1.setSelectedIndex(5);
     private void txt_NombreNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreNuevoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_NombreNuevoActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       Login log = new Login();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1267,6 +1308,7 @@ jTabbedPane1.setSelectedIndex(5);
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
