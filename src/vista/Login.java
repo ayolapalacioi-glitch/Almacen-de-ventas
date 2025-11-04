@@ -151,13 +151,13 @@ public class Login extends javax.swing.JFrame {
        String email = txt_login_usuario.getText().trim();
 String contraseña = txt_login_contraseña.getText().trim();
 
-// Validar que haya un checkbox seleccionado
+
 if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelected()) {
     JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de usuario para ingresar");
     return;
 }
 
-// Validar login con los datos del array
+
 String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
 
 if (rolEncontrado == null) {
@@ -165,7 +165,7 @@ if (rolEncontrado == null) {
     return;
 }
 
-// Verificar que el rol seleccionado coincida con el rol del usuario
+
 if (chkUsuario.isSelected() && rolEncontrado.equals("Usuario")) {
     Vista_usuario vista = new Vista_usuario();
     vista.setVisible(true);
