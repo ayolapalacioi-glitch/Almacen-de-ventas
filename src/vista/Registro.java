@@ -3,9 +3,7 @@ package vista;
 
 
 import controladores.controlador_Registro;
-import java.util.*;
-import javax. swing.*;
-import vista.Vista_usuario;
+
 public class Registro extends javax.swing.JFrame {
      
     

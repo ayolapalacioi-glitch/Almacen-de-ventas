@@ -2,18 +2,18 @@
 package controladores;
 
 import javax.swing.*;
-import vista.Vista_usuario;
+
 
 
 public class controlador_Registro {
-  private static String[] admins = new String[50];
-private static String[] proveedores = new String[50];
-private static String[] usuarios = new String[50];
+  public static String[] admins = new String[50];
+public static String[] proveedores = new String[50];
+public static String[] usuarios = new String[50];
 
 
-private static int contadorAdmins = 0;
-private static int contadorProveedores = 0;
-private static int contadorUsuarios = 0;
+public static int contadorAdmins = 0;
+public static int contadorProveedores = 0;
+public static int contadorUsuarios = 0;
 
 
 public static void registrarUsuario(JTextField txt_registro_nombre, JTextField txt_registro_correo,
@@ -116,7 +116,7 @@ public static void registrarUsuario(JTextField txt_registro_nombre, JTextField t
 }
 
 
-private static boolean usuarioExiste(String email) {
+public static boolean usuarioExiste(String email) {
 
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
@@ -143,7 +143,7 @@ private static boolean usuarioExiste(String email) {
 }
 
 
-private static boolean numeroExiste(String numero) {
+public static boolean numeroExiste(String numero) {
   
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
@@ -172,7 +172,7 @@ private static boolean numeroExiste(String numero) {
 }
 
 
-private static void mostrarMensajeExito(String rol) {
+public static void mostrarMensajeExito(String rol) {
     JOptionPane.showMessageDialog(null, 
         rol + " registrado exitosamente", 
         "Registro Exitoso", 
@@ -180,14 +180,14 @@ private static void mostrarMensajeExito(String rol) {
 }
 
 
-private static void mostrarMensajeCapacidad() {
+public static void mostrarMensajeCapacidad() {
     JOptionPane.showMessageDialog(null, 
         "No hay espacio disponible para más registros de este tipo", 
         "Capacidad Máxima", 
         JOptionPane.ERROR_MESSAGE);
 }
 
-private static void limpiarCampos(JTextField txtNombre, JTextField txtEmail, 
+public static void limpiarCampos(JTextField txtNombre, JTextField txtEmail, 
                                  JPasswordField txtPassword, JComboBox<String> comboRol,
                                  JTextField txtNumero, JTextField txtCiudad) {
     txtNombre.setText("");
@@ -311,7 +311,7 @@ public static String[] obtenerDatosUsuario(String email) {
 }
 
 
-private static String emailUsuarioActual = "";
+public static String emailUsuarioActual = "";
 
 
 public static void setEmailUsuarioActual(String email) {

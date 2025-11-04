@@ -4,8 +4,8 @@ package controladores;
 
 public class controlador_Pago {
   
-    private static String[] facturas = new String[1000];
-    private static int contadorFacturas = 0;
+    public static String[] facturas = new String[1000];
+    public static int contadorFacturas = 0;
     
     
     public static void registrarPago(javax.swing.JTextField jTextField1, javax.swing.JTextField jTextField3,
