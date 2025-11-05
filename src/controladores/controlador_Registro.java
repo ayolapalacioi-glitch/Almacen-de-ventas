@@ -10,10 +10,12 @@ public class controlador_Registro {
 public static String[] proveedores = new String[50];
 public static String[] usuarios = new String[50];
 
-
-public  static int contadorAdmins = 0;
+public static int contadorAdmins = 0;
 public static int contadorProveedores = 0;
 public static int contadorUsuarios = 0;
+
+
+public static String emailUsuarioActual = "";
 
 
 public static void registrarUsuario(JTextField txt_registro_nombre, JTextField txt_registro_correo,
@@ -229,6 +231,7 @@ public static String validarLogin(String email, String password) {
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
+            emailUsuarioActual = email; // Guarda el email
             return "Admin";
         }
     }
@@ -237,6 +240,7 @@ public static String validarLogin(String email, String password) {
     for (int i = 0; i < contadorProveedores; i++) {
         String[] datos = proveedores[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
+            emailUsuarioActual = email; // Guarda el email
             return "Proveedor";
         }
     }
@@ -245,6 +249,7 @@ public static String validarLogin(String email, String password) {
     for (int i = 0; i < contadorUsuarios; i++) {
         String[] datos = usuarios[i].split("\\|");
         if (datos[1].equals(email) && datos[2].equals(password)) {
+            emailUsuarioActual = email;
             return "Usuario";
         }
     }
@@ -255,7 +260,7 @@ public static String validarLogin(String email, String password) {
 
 public static void cargarDatosEnTabla(javax.swing.JTable tabla) {
     javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabla.getModel();
-    modelo.setRowCount(0); // Limpiar la tabla
+    modelo.setRowCount(0);
     
 
     for (int i = 0; i < contadorProveedores; i++) {
@@ -279,6 +284,48 @@ public static void cargarDatosEnTabla(javax.swing.JTable tabla) {
             datos[4],  // Ciudad
             "Usuario"  // Rol
         });
+    }
+}
+
+
+
+public static void mostrarDatosUsuario(JTextField txtNombre, JTextField txtEmail, 
+                                       JTextField txtCiudad, JTextField txtTelefono) {
+    
+  
+    for (int i = 0; i < contadorAdmins; i++) {
+        String[] datos = admins[i].split("\\|");
+        if (datos[1].equals(emailUsuarioActual)) {
+            txtNombre.setText(datos[0]);
+            txtEmail.setText(datos[1]);
+            txtTelefono.setText(datos[3]);
+            txtCiudad.setText(datos[4]);
+            return;
+        }
+    }
+    
+
+    for (int i = 0; i < contadorProveedores; i++) {
+        String[] datos = proveedores[i].split("\\|");
+        if (datos[1].equals(emailUsuarioActual)) {
+            txtNombre.setText(datos[0]);
+            txtEmail.setText(datos[1]);
+            txtTelefono.setText(datos[3]);
+            txtCiudad.setText(datos[4]);
+            return;
+        }
+    }
+    
+  
+    for (int i = 0; i < contadorUsuarios; i++) {
+        String[] datos = usuarios[i].split("\\|");
+        if (datos[1].equals(emailUsuarioActual)) {
+            txtNombre.setText(datos[0]);
+            txtEmail.setText(datos[1]);
+            txtTelefono.setText(datos[3]);
+            txtCiudad.setText(datos[4]);
+            return;
+        }
     }
 }
     }

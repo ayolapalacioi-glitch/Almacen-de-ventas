@@ -7,6 +7,8 @@ package vista;
 import controladores.Controlador_factura;
 import controladores.controlador_Registro;
 import controladores.ControladorPro;
+import controladores.Controlador_pago;
+import static controladores.controlador_Registro.mostrarDatosUsuario;
 import javax.swing.*;
 
 /**
@@ -25,7 +27,8 @@ public class Vista_usuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
          controlador_Registro.cargarDatosEnTabla(jTable4);
          ControladorPro.enlistarProductoAdmin();
-
+          Controlador_pago.procesarPago(tabla, fecha, factura_n, V_Total);
+          mostrarDatosUsuario(nombre, email, ciudad, telefono);
     }
 
     /**
@@ -91,24 +94,22 @@ public class Vista_usuario extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fecha = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        factura_n = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jLabel37 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        V_Total = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        ciudad = new javax.swing.JTextField();
+        telefono = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -407,7 +408,7 @@ public class Vista_usuario extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setText("Colombia");
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 109, -1, -1));
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setText("Sitio de compra:");
@@ -418,17 +419,17 @@ public class Vista_usuario extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setText("Email:");
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 238, -1, -1));
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setText("Telefono:");
         jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 204, -1, -1));
 
         jLabel22.setText("3145846329");
-        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 204, -1, -1));
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         jLabel23.setText("admind@gmail.com");
-        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 238, -1, -1));
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel24.setText("Detalles del cliente");
@@ -457,26 +458,19 @@ public class Vista_usuario extends javax.swing.JFrame {
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel34.setText("Fecha:");
-        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 75, -1, -1));
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, -1, -1));
 
-        jTextField1.setEnabled(false);
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 70, 130, -1));
+        fecha.setEnabled(false);
+        jPanel6.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 130, -1));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel35.setText("Factura N°:");
-        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 113, -1, -1));
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
 
-        jTextField3.setEnabled(false);
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 108, 118, -1));
+        factura_n.setEnabled(false);
+        jPanel6.add(factura_n, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 118, -1));
 
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel36.setText("Nombre del cliente:");
-        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 155, -1, -1));
-
-        jTextField4.setEnabled(false);
-        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 150, 140, -1));
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -487,22 +481,22 @@ public class Vista_usuario extends javax.swing.JFrame {
                 "Codigo", "Descripcion", "Cantidad", "Valor", "Subtotal", "Impuestos", "Total"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(tabla);
 
-        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 191, 497, 218));
+        jPanel6.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 497, 218));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel37.setText("Valor total:");
-        jPanel6.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 432, -1, -1));
+        jPanel6.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, -1, -1));
 
-        jTextField5.setEnabled(false);
-        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 430, 78, -1));
+        V_Total.setEnabled(false);
+        jPanel6.add(V_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 78, -1));
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(204, 204, 0));
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/herramientas-de-ferreteria.png"))); // NOI18N
         jLabel38.setText("Ferreteria GoldenHammer");
-        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 6, -1, -1));
+        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jButton7.setBackground(new java.awt.Color(51, 255, 51));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -524,7 +518,7 @@ public class Vista_usuario extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Pais:");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 109, -1, -1));
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         jButton11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton11.setText("Imprimir");
@@ -536,21 +530,21 @@ public class Vista_usuario extends javax.swing.JFrame {
         });
         jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 427, -1, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setEnabled(false);
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 90, -1));
+        nombre.setBackground(new java.awt.Color(204, 204, 204));
+        nombre.setEnabled(false);
+        jPanel6.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 90, -1));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setEnabled(false);
-        jPanel6.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 90, 30));
+        email.setBackground(new java.awt.Color(204, 204, 204));
+        email.setEnabled(false);
+        jPanel6.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 90, 30));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.setEnabled(false);
-        jPanel6.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 90, -1));
+        ciudad.setBackground(new java.awt.Color(204, 204, 204));
+        ciudad.setEnabled(false);
+        jPanel6.add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 90, -1));
 
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField8.setEnabled(false);
-        jPanel6.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 90, -1));
+        telefono.setBackground(new java.awt.Color(204, 204, 204));
+        telefono.setEnabled(false);
+        jPanel6.add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 90, -1));
 
         jTabbedPane1.addTab("Factura", jPanel6);
 
@@ -626,6 +620,16 @@ public class Vista_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+ double total = Double.parseDouble(V_Total.getText());
+    
+    // Validar el pago
+    boolean pagoExitoso = Controlador_pago.validarPago(total);
+    
+    if (pagoExitoso) {
+       
+    }   
+
+        
         JOptionPane.showMessageDialog(null, "   Desea confirmar si pedido?"
                 );
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -670,7 +674,12 @@ public class Vista_usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField V_Total;
     private javax.swing.JTable carrito;
+    private javax.swing.JTextField ciudad;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField factura_n;
+    private javax.swing.JTextField fecha;
     public static javax.swing.JTable i;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -707,7 +716,6 @@ public class Vista_usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -732,15 +740,9 @@ public class Vista_usuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField nombre;
     private javax.swing.JTable pedido;
+    public static javax.swing.JTable tabla;
+    private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 }
