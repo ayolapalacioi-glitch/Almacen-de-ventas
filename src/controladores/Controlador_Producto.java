@@ -294,4 +294,8 @@ public class Controlador_Producto {
             Categoria.setText(categoria[fila]);
         }
     }
+
+    public static void CargarDatosEnTabla(JTable Inventario_table) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

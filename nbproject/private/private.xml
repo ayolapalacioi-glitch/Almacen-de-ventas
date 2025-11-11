@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/vista/Provedores.java</file>
             <file>file:/C:/Users/Ing_elkin/Almacen-de-ventas/src/vista/Productos.java</file>
+=======
+            <file>file:/C:/Users/ayola/OneDrive/Documentos/NetBeansProjects/proAula/src/vista/Vista_usuario.java</file>
+            <file>file:/C:/Users/ayola/OneDrive/Documentos/NetBeansProjects/proAula/src/controladores/controlador_Registro.java</file>
+            <file>file:/C:/Users/ayola/OneDrive/Documentos/NetBeansProjects/proAula/src/controladores/LlenartaTablas_usuario.java</file>
+>>>>>>> 9d7e2721a091a01d9ec22e766fe9e76ac4186184
         </group>
     </open-files>
 </project-private>

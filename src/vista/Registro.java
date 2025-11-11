@@ -6,6 +6,7 @@ import controladores.controlador_Registro;
 import java.util.*;
 import javax. swing.*;
 import vista.Vista_usuario;
+import controladores.Validadores;
 public class Registro extends javax.swing.JFrame {
      
     
@@ -155,14 +156,26 @@ public class Registro extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Login login = new Login();
     login.setVisible(true);
-    login.setLocationRelativeTo(null); // Centrar en pantalla
+    login.setLocationRelativeTo(null); 
 
-    // Cerrar la ventana actual
+
     this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_registro_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registro_confirmarActionPerformed
-     controlador_Registro.registrarUsuario(
+        String nombre =  txt_registro_nombre.getText();
+        String numero =  txt_registro_numero.getText();
+        String ciudad =  txt_Ciudad_Registro.getText();
+        String email =  txt_registro_correo.getText();
+        
+        Validadores.validacionamail(email);
+   Validadores.soloLetrasCoherente(nombre, "Nombre", txt_registro_nombre);
+       
+        Validadores.validarTelefono(numero,"numero",txt_registro_numero);
+        
+        Validadores.validarTextoCoherente(ciudad,"ciudad",txt_Ciudad_Registro);
+       
+        controlador_Registro.registrarUsuario(
     txt_registro_nombre,
     txt_registro_correo,
     txt_registro_numero,
