@@ -132,7 +132,7 @@
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="160" y="110" width="610" height="450"/>
+          <AbsoluteConstraints x="160" y="110" width="620" height="450"/>
         </Constraint>
       </Constraints>
 
@@ -153,11 +153,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane7" min="-2" pref="601" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="172" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButton6" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -267,8 +267,20 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButton1"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="7b" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="14" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/newpackage/procesamiento-de-datos.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Actualiazar Tabla"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -513,7 +525,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="138" max="32767" attributes="0"/>
+                      <EmptySpace pref="148" max="32767" attributes="0"/>
                       <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>

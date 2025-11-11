@@ -181,7 +181,15 @@ public class Provedores extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(Datos_Porveedor_2);
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(0, 123, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/procesamiento-de-datos.png"))); // NOI18N
+        jButton1.setText("Actualiazar Tabla");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,10 +198,10 @@ public class Provedores extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
@@ -405,7 +413,7 @@ public class Provedores extends javax.swing.JFrame {
                                 .addComponent(jTextField19)))
                         .addGap(47, 47, 47))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
+                .addContainerGap(148, Short.MAX_VALUE)
                 .addComponent(jLabel42)
                 .addGap(117, 117, 117))
         );
@@ -440,7 +448,7 @@ public class Provedores extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ELIMINAR", jPanel12);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 610, 450));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 620, 450));
 
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/multitud-de-usuarios.png"))); // NOI18N
@@ -539,6 +547,11 @@ public class Provedores extends javax.swing.JFrame {
         new Productos().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //xdddddddd
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
