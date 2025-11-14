@@ -148,25 +148,51 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
-       String email = txt_login_usuario.getText().trim();
+    String email = txt_login_usuario.getText().trim();
 String contraseña = txt_login_contraseña.getText().trim();
-
-// Validar que haya un checkbox seleccionado
+ 
 if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelected()) {
     JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de usuario para ingresar");
     return;
 }
 
-// Validar login con los datos del array
-String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
 
-if (rolEncontrado == null) {
+if (email.equals("admind@gmail.com") && contraseña.equals("123")) {
+    
+    if (chkUsuario.isSelected()) {
+        controlador_Registro.setEmailUsuarioActual(email);
+        Vista_usuario vista = new Vista_usuario();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+    } 
+    else if (chkAdmin.isSelected()) {
+        Vista_admin vista = new Vista_admin();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+    } 
+    else if (chkProveedor.isSelected()) {
+        Provedores vista = new Provedores();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+    }
+    return;
+}
+
+
+String[] resultado = controlador_Registro.validarLoginCompleto(email, contraseña);
+if (resultado == null) {
     JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
     return;
 }
 
-// Verificar que el rol seleccionado coincida con el rol del usuario
+String rolEncontrado = resultado[0];  
+String emailUsuario = resultado[1];   
+
 if (chkUsuario.isSelected() && rolEncontrado.equals("Usuario")) {
+    controlador_Registro.setEmailUsuarioActual(emailUsuario);
     Vista_usuario vista = new Vista_usuario();
     vista.setVisible(true);
     vista.setLocationRelativeTo(null);

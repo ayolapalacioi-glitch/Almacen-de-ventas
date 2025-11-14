@@ -6,7 +6,7 @@ import vista.Vista_usuario;
 
 
 public class controlador_Registro {
-   private static String[] admins = new String[50];
+  private static String[] admins = new String[50];
 private static String[] proveedores = new String[50];
 private static String[] usuarios = new String[50];
 
@@ -144,7 +144,7 @@ private static boolean usuarioExiste(String email) {
 
 
 private static boolean numeroExiste(String numero) {
-    // Verificar en admins
+  
     for (int i = 0; i < contadorAdmins; i++) {
         String[] datos = admins[i].split("\\|");
         if (datos[3].equals(numero)) {
@@ -253,19 +253,103 @@ public static String validarLogin(String email, String password) {
 }
 
 
+public static String[] validarLoginCompleto(String email, String password) {
+    
+    for (int i = 0; i < contadorAdmins; i++) {
+        String[] datos = admins[i].split("\\|");
+        if (datos[1].equals(email) && datos[2].equals(password)) {
+            return new String[]{"Admin", email};
+        }
+    }
+    
+   
+    for (int i = 0; i < contadorProveedores; i++) {
+        String[] datos = proveedores[i].split("\\|");
+        if (datos[1].equals(email) && datos[2].equals(password)) {
+            return new String[]{"Proveedor", email};
+        }
+    }
+    
+   
+    for (int i = 0; i < contadorUsuarios; i++) {
+        String[] datos = usuarios[i].split("\\|");
+        if (datos[1].equals(email) && datos[2].equals(password)) {
+            return new String[]{"Usuario", email};
+        }
+    }
+    
+    return null;
+}
+
+
+public static String[] obtenerDatosUsuario(String email) {
+   
+    for (int i = 0; i < contadorAdmins; i++) {
+        String[] datos = admins[i].split("\\|");
+        if (datos[1].equals(email)) {
+            return datos; 
+        }
+    }
+    
+   
+    for (int i = 0; i < contadorProveedores; i++) {
+        String[] datos = proveedores[i].split("\\|");
+        if (datos[1].equals(email)) {
+            return datos;
+        }
+    }
+    
+   
+    for (int i = 0; i < contadorUsuarios; i++) {
+        String[] datos = usuarios[i].split("\\|");
+        if (datos[1].equals(email)) {
+            return datos;
+        }
+    }
+    
+    return null; 
+}
+
+
+private static String emailUsuarioActual = "";
+
+
+public static void setEmailUsuarioActual(String email) {
+    emailUsuarioActual = email;
+}
+
+
+public static void cargarDatosUsuarioEnTextFields(javax.swing.JTextField jTextField2, 
+                                                   javax.swing.JTextField jTextField4, 
+                                                   javax.swing.JTextField jTextField6, 
+                                                   javax.swing.JTextField jTextField7) {
+    String[] datosUsuario = obtenerDatosUsuario(emailUsuarioActual);
+    
+    if (datosUsuario != null) {
+        jTextField2.setText(datosUsuario[0]);    
+        jTextField4.setText(datosUsuario[1]);     
+        jTextField6.setText(datosUsuario[4]);   
+        jTextField7.setText(datosUsuario[3]);  
+    } else {
+        jTextField2.setText("No disponible");
+        jTextField4.setText("No disponible");
+        jTextField6.setText("No disponible");
+        jTextField7.setText("No disponible");
+    }
+}
+
 public static void cargarDatosEnTabla(javax.swing.JTable tabla) {
     javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabla.getModel();
-    modelo.setRowCount(0); // Limpiar la tabla
-    
+    modelo.setRowCount(0); 
 
     for (int i = 0; i < contadorProveedores; i++) {
         String[] datos = proveedores[i].split("\\|");
         modelo.addRow(new Object[]{
-            datos[0],  // Nombre
-            datos[1],  // Email
-            datos[3],  // Número
-            datos[4],  // Ciudad
-            "Proveedor" // Rol
+            datos[0],  
+            datos[1],  
+            datos[3],  
+            datos[4],  
+            "Proveedor" 
         });
     }
     

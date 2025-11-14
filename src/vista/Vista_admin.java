@@ -4,8 +4,16 @@ import static controladores.BuscarTrabajador.buscar;
 import static controladores.ListarTrabajadores.cargartrabajadores;
 import static controladores.RegistrarTrabajadores.registrarTrabajador;
 import static controladores.AutenticacionRegis.*;
+import static controladores.ControladorPro.EditarPRoducto;
+import static controladores.ControladorPro.eliminarId;
 import static controladores.ControladorPro.enlistarProductoAdmin;
+import static controladores.ControladorPro.sumarContador;
 import controladores.Controlador_Producto;
+import static controladores.Controlador_Producto.cantidad;
+import static controladores.Controlador_Producto.categoria;
+import static controladores.Controlador_Producto.idProducto;
+import static controladores.Controlador_Producto.nombre;
+import static controladores.Controlador_Producto.precio;
 import static controladores.RegistrarTrabajadores.eliminarTrabajador;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -18,6 +26,7 @@ public class Vista_admin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
        enlistarProductoAdmin();
+       sumarContador();
 
     }
 
@@ -38,12 +47,8 @@ public class Vista_admin extends javax.swing.JFrame {
         txt_conT = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        txt_contProducto = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
@@ -95,11 +100,7 @@ public class Vista_admin extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
-        jLabel53 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
         jLabel54 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -204,28 +205,12 @@ public class Vista_admin extends javax.swing.JFrame {
 
         jPanel4.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 260, 80));
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel16.setText("20");
-        jPanel12.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setText("Productos con bajo stock");
-        jPanel12.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/informe.png"))); // NOI18N
-        jPanel12.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
-
-        jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 260, 80));
-
         jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 51)));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel19.setText("350");
-        jPanel13.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 70, -1));
+        txt_contProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txt_contProducto.setText("0");
+        jPanel13.add(txt_contProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 70, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setText("Productos en inventario");
@@ -234,13 +219,13 @@ public class Vista_admin extends javax.swing.JFrame {
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/caja-del-paquete.png"))); // NOI18N
         jPanel13.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 50, -1));
 
-        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 260, 80));
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 260, 80));
 
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 51)));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel23.setText("120");
+        jLabel23.setText("0");
         jPanel14.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 70, -1));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -540,7 +525,7 @@ public class Vista_admin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE", "Categoria", "Cantidad", "Precio"
+                "Id", "Nombre", "Precio", "Cantidad", "Categoria"
             }
         ) {
             Class[] types = new Class [] {
@@ -594,45 +579,13 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jPanel6.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 70, 40));
 
-        jButton2.setText("Actualizar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
-
         jTabbedPane1.addTab("tab3", jPanel6);
 
         jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel53.setText("COMPRAS REALIZADAS");
-        jPanel30.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "FACTURA DE VENTA", "CLIENTE", "EMPLEADO", "TOTAL"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(jTable4);
-
-        jPanel30.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 670, 110));
-
         jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel54.setText("VENTAS REALIZADAS");
-        jPanel30.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        jPanel30.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newpackage/izquierda.png"))); // NOI18N
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -652,11 +605,11 @@ public class Vista_admin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FACTURA DE VENTA", "CLIENTE", "EMPLEADO", "TOTAL"
+                "NUMERO DE FACTURA", "CLIENTE", "TOTAL"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -665,7 +618,7 @@ public class Vista_admin extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable5);
 
-        jPanel30.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 670, 110));
+        jPanel30.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 670, 260));
 
         jTabbedPane1.addTab("tab5", jPanel30);
 
@@ -1098,6 +1051,11 @@ public class Vista_admin extends javax.swing.JFrame {
  int seleccion = Inventario_table.getSelectedRow(); 
         if(seleccion>-1){
             jTabbedPane1.setSelectedIndex(5);
+           txt_Nombre.setText(nombre[seleccion]);
+           txt_Categoria.setText(categoria[seleccion]);
+                   txt_Cantidad.setText(String.valueOf(cantidad[seleccion]));
+                   txt_Precio.setText(String.valueOf(precio[seleccion]));
+            
         }else{
             JOptionPane.showMessageDialog(null, "seleccion un producto para editar");
         }
@@ -1105,7 +1063,9 @@ public class Vista_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+       int seleccion = Inventario_table.getSelectedRow();
+       eliminarId(seleccion);
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -1233,10 +1193,6 @@ cargartrabajadores();
         cargartrabajadores();
     }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         
     }//GEN-LAST:event_jButton6MouseClicked
@@ -1250,7 +1206,13 @@ cargartrabajadores();
     }//GEN-LAST:event_txt_NombreNuevoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+int seleccion = Inventario_table.getSelectedRow(); 
+String nombre = txt_NombreNuevo.getText();
+String  categoria = txt_CategoriaNueva.getText();
+String Cantidad = txt_CantidadNueva.getText();
+String Precio = txt_PrecioNuevo.getText();
+        EditarPRoducto(seleccion,nombre,categoria,Cantidad,Precio);
+      
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1305,7 +1267,6 @@ cargartrabajadores();
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1319,12 +1280,8 @@ cargartrabajadores();
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -1360,7 +1317,6 @@ cargartrabajadores();
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel57;
@@ -1374,7 +1330,6 @@ cargartrabajadores();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -1408,10 +1363,8 @@ cargartrabajadores();
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JTable tabla_traba;
@@ -1425,6 +1378,7 @@ cargartrabajadores();
     private javax.swing.JTextField txt_PrecioNuevo;
     private javax.swing.JTextField txt_buscar;
     public static javax.swing.JLabel txt_conT;
+    public static javax.swing.JLabel txt_contProducto;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_telefono;

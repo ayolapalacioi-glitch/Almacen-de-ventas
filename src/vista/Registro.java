@@ -155,9 +155,9 @@ public class Registro extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        Login login = new Login();
     login.setVisible(true);
-    login.setLocationRelativeTo(null); // Centrar en pantalla
+    login.setLocationRelativeTo(null); 
 
-    // Cerrar la ventana actual
+   
     this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
