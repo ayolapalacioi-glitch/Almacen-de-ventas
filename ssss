@@ -1,0 +1,43 @@
+[33mc7ee591[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/proveedor[m[33m)[m feat: Guardar cambios
+[33m2f6a280[m feat: Guardar cambios
+[33m8445491[m[33m ([m[1;31morigin/feature/usuario_txt[m[33m)[m feat: guardo cambios
+[33m1b16f44[m feat: guardo cambios
+[33m142b396[m[33m ([m[1;31morigin/feature/proveedor[m[33m)[m Sistema Productos
+[33m545e28a[m productos
+[33m68d3f86[m feat: agrego arrays de registro y mostrar datos usuario
+[33m0da381d[m feat: creo rama y agrego los txt
+[33m729ff0f[m Productos
+[33mb6da33f[m feat: agrego conexion a vista proveedor
+[33m5ca4af9[m feat: subo cambios
+[33m968e872[m feat:Agrege Proveedores
+[33m85d55d8[m Proveedores
+[33md015716[m feat: subo la conexion del login con las otras ventanas
+[33m55ad362[m feat: agrego el panel de factura y mejora de diseño
+[33m65366b3[m feat: agrego ventanas de usuario y diseño de registro
+[33me8150f2[m feat: agrego vista usuario y registro
+[33md1bde78[m Merge branch 'develop' of https://github.com/ayolapalacioi-glitch/Almacen-de-ventas into develop   Merge develop branch to update feature with latest changes.
+[33mc559844[m feat/develop Limpieza de repo con .gitignore
+[33mc555150[m add README.md
+[33m1114eda[m feat: cambio ventana usuario
+[33m9803792[m feat:opcion facturacion agregada
+[33mdd2b6a8[m[33m ([m[1;31morigin/feature/admin[m[33m)[m ya termine el panel de admin por ahora , esta a espera de base de datos
+[33m4056c9d[m agregue tabla de trabajadores y puse fondos , o algo asi
+[33mf2b395a[m agrege solo el inicio de el panel admin
+[33m82adbf1[m[33m ([m[1;31morigin/develop[m[33m)[m validador final de login
+[33m5bf6815[m final login
+[33m80a4e94[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m Merge pull request #7 from ayolapalacioi-glitch/develop
+[33m67b908a[m login listo
+[33m6f544cc[m Merge pull request #6 from ayolapalacioi-glitch/develop
+[33mc177010[m[33m ([m[1;31morigin/utilidades[m[33m)[m optimizacion 3 login
+[33m87cdd22[m mejora del login
+[33mf9a1a21[m Merge pull request #4 from ayolapalacioi-glitch/utilidades
+[33mb80e8da[m optimizacion 2 login
+[33m75d0f18[m Merge pull request #3 from ayolapalacioi-glitch/utilidades
+[33m61b81d1[m optimizacion de login
+[33mbe3a504[m Merge pull request #2 from ayolapalacioi-glitch/utilidades
+[33m171da52[m agrego icono del login
+[33mbe4791a[m cambio nombre login
+[33mce7121b[m Merge pull request #1 from ayolapalacioi-glitch/utilidades
+[33mbd69318[m cambio nombre de variables
+[33m1714e00[m Agrego inicio de sesion del proyecto
+[33m4a6d046[m primer commit
