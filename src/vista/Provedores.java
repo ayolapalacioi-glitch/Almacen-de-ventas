@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import controladores.controlador_Registro;
+
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import controladores.controlador_Registro;
+import controladores.Controlador_Proveedor;
 
 /**
  *
@@ -48,28 +49,28 @@ public class Provedores extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        Buscar = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        Name_Proveedor = new javax.swing.JTextField();
+        Numero_Proveedor = new javax.swing.JTextField();
+        Ciudad_Proveedor = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        Buscar_2 = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
+        Name_Proveedor_2 = new javax.swing.JTextField();
+        Numero_Proveedor_2 = new javax.swing.JTextField();
+        Ciudad_Proveedor_2 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
@@ -226,9 +227,20 @@ public class Provedores extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel32.setText("Email Proveedor:");
 
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+
         jButton3.setBackground(new java.awt.Color(0, 123, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel33.setText("Nombre Proveedor:");
@@ -238,6 +250,12 @@ public class Provedores extends javax.swing.JFrame {
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel35.setText("Numero:");
+
+        Name_Proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name_ProveedorActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(0, 123, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -278,22 +296,22 @@ public class Provedores extends javax.swing.JFrame {
                                 .addGap(4, 4, 4)
                                 .addComponent(jLabel34)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField12))
+                                .addComponent(Ciudad_Proveedor))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Name_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11)))))
+                                .addComponent(Numero_Proveedor)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel32)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -307,7 +325,7 @@ public class Provedores extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
                     .addComponent(jButton3))
                 .addGap(38, 38, 38)
@@ -315,14 +333,14 @@ public class Provedores extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Numero_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ciudad_Proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -336,15 +354,20 @@ public class Provedores extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel41.setText("Ingrese el Email del Proveedor:");
 
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+        Buscar_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
+                Buscar_2ActionPerformed(evt);
             }
         });
 
         jButton9.setBackground(new java.awt.Color(0, 123, 255));
         jButton9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton9.setText("Buscar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel42.setText("Datos del Proveedor a eliminar");
@@ -392,7 +415,7 @@ public class Provedores extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addComponent(jLabel41)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField13)
+                        .addComponent(Buscar_2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)
                         .addContainerGap())
@@ -402,15 +425,15 @@ public class Provedores extends javax.swing.JFrame {
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel43)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField18))
+                                .addComponent(Name_Proveedor_2))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel45)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField20))
+                                .addComponent(Ciudad_Proveedor_2))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel44)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField19)))
+                                .addComponent(Numero_Proveedor_2)))
                         .addGap(47, 47, 47))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap(148, Short.MAX_VALUE)
@@ -423,22 +446,22 @@ public class Provedores extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Buscar_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel42)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name_Proveedor_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Numero_Proveedor_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Ciudad_Proveedor_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -517,9 +540,9 @@ public class Provedores extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+    private void Buscar_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
+    }//GEN-LAST:event_Buscar_2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         jTabbedPane1.setSelectedIndex(0);
@@ -530,11 +553,40 @@ public class Provedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // Actualizar datos del Proveedor 
+
+         boolean actualizado = Controlador_Proveedor.actualizarProveedor(
+            Buscar.getText(),     
+            Name_Proveedor.getText(),      
+            Numero_Proveedor.getText(),     
+            Ciudad_Proveedor.getText(),     
+            Datos_Porveedor_2,              
+            Name_Proveedor,                 
+            Numero_Proveedor,
+            Ciudad_Proveedor
+    );
+
+    if (actualizado) {
+        JOptionPane.showMessageDialog(null, "Proveedor actualizado correctamente");
+    } else {
+        JOptionPane.showMessageDialog(null, "No se pudo actualizar (correo no encontrado o campos vacíos)");
+    }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // Eliminar Proveedor 
+
+        String emailBuscar = Buscar_2.getText().trim();
+
+    if (Controlador_Proveedor.eliminarProveedor(
+            emailBuscar,
+            Datos_Porveedor_2,
+            Name_Proveedor_2,
+            Numero_Proveedor_2,
+            Ciudad_Proveedor_2
+    )) {
+        JOptionPane.showMessageDialog(null, "Proveedor eliminado correctamente.");
+    } else {
+        JOptionPane.showMessageDialog(null, "No se encontró el proveedor con ese correo.");
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -549,9 +601,44 @@ public class Provedores extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //xdddddddd
+
+        controlador_Registro.cargarDatosEnTabla(Datos_Porveedor_2);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean encontrado = Controlador_Proveedor.buscarProveedor(
+            Buscar.getText(),
+            Name_Proveedor,
+            Numero_Proveedor,
+            Ciudad_Proveedor
+    );
+
+    if (!encontrado) {
+        JOptionPane.showMessageDialog(null, "Proveedor no encontrado");
+     }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        boolean encontrado = Controlador_Proveedor.buscarProveedorEliminar(
+            Buscar_2.getText().trim(),    
+            Name_Proveedor_2,              
+            Numero_Proveedor_2,            
+            Ciudad_Proveedor_2             
+    );
+
+    if (!encontrado) {
+        JOptionPane.showMessageDialog(null, "Proveedor no encontrado");
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void Name_ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_ProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name_ProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -589,7 +676,15 @@ public class Provedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Buscar;
+    private javax.swing.JTextField Buscar_2;
+    private javax.swing.JTextField Ciudad_Proveedor;
+    private javax.swing.JTextField Ciudad_Proveedor_2;
     private javax.swing.JTable Datos_Porveedor_2;
+    private javax.swing.JTextField Name_Proveedor;
+    private javax.swing.JTextField Name_Proveedor_2;
+    private javax.swing.JTextField Numero_Proveedor;
+    private javax.swing.JTextField Numero_Proveedor_2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -630,13 +725,5 @@ public class Provedores extends javax.swing.JFrame {
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
