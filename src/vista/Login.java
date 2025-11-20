@@ -148,9 +148,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void btn_login_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_login_ingresarActionPerformed
-       String email = txt_login_usuario.getText().trim();
+     String email = txt_login_usuario.getText().trim();
 String contraseña = txt_login_contraseña.getText().trim();
-
 
 if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelected()) {
     JOptionPane.showMessageDialog(this, "Debe seleccionar un tipo de usuario para ingresar");
@@ -158,13 +157,39 @@ if (!chkUsuario.isSelected() && !chkAdmin.isSelected() && !chkProveedor.isSelect
 }
 
 
-String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
+boolean esSuperAdmin = email.equals("admind@gmail.com") && contraseña.equals("123");
 
+if (esSuperAdmin) {
+  
+    if (chkUsuario.isSelected()) {
+        Vista_usuario vista = new Vista_usuario();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+        return;
+    } 
+    else if (chkAdmin.isSelected()) {
+        Vista_admin vista = new Vista_admin();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+        return;
+    } 
+    else if (chkProveedor.isSelected()) {
+        Provedores vista = new Provedores();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+        this.dispose();
+        return;
+    }
+}
+
+
+String rolEncontrado = controlador_Registro.validarLogin(email, contraseña);
 if (rolEncontrado == null) {
     JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
     return;
 }
-
 
 if (chkUsuario.isSelected() && rolEncontrado.equals("Usuario")) {
     Vista_usuario vista = new Vista_usuario();

@@ -6,8 +6,11 @@ package vista;
 
 import controladores.Controlador_factura;
 import controladores.controlador_Registro;
-import controladores.ControladorPro;
+
 import controladores.Controlador_pago;
+import static controladores.Controlador_pago.actualizarTablaIDesdeInventario;
+import static controladores.Controlador_pago.calcularColumnasFactura;
+import static controladores.Controlador_pago.calcularTotalGeneral;
 import controladores.LlenartaTablas_usuario;
 import static controladores.controlador_Registro.mostrarDatosUsuario;
 import javax.swing.*;
@@ -27,8 +30,8 @@ public class Vista_usuario extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
          controlador_Registro.cargarDatosEnTabla(jTable4);
-         ControladorPro.enlistarProductoAdmin();
-          Controlador_pago.procesarPago(tabla, fecha, factura_n, V_Total);
+        actualizarTablaIDesdeInventario();
+         
           mostrarDatosUsuario(nombre, email, ciudad, telefono);
           
     }
@@ -312,29 +315,16 @@ public class Vista_usuario extends javax.swing.JFrame {
 
         pedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Idproducto", "nombre", "precio", " cantidad", "categoria"
+                "Idproducto", "nombre", "precio", " cantidad"
             }
         ));
         jScrollPane6.setViewportView(pedido);
 
-        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 500, 180));
+        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 500, 160));
 
         jTabbedPane1.addTab("Confirmacion de pedido", jPanel5);
 
@@ -496,7 +486,7 @@ public class Vista_usuario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, -1, -1));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 51, 51));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -507,7 +497,7 @@ public class Vista_usuario extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 130, -1));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 130, -1));
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(204, 204, 0));
@@ -517,29 +507,17 @@ public class Vista_usuario extends javax.swing.JFrame {
 
         carrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Idproducto", "nombre", "precio", " cantidad", "categoria"
+                "Idproducto", "nombre", "precio", " cantidad"
             }
         ));
         jScrollPane2.setViewportView(carrito);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 500, 230));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 500, 100));
 
         jTabbedPane1.addTab("Carrito", jPanel3);
 
@@ -578,7 +556,9 @@ public class Vista_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jTabbedPane1.setSelectedIndex(3);
+           LlenartaTablas_usuario llenarTablas = new LlenartaTablas_usuario();
+     llenarTablas.pasarPedidoAFactura(pedido,tabla);
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -612,18 +592,43 @@ public class Vista_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
- double total = Double.parseDouble(V_Total.getText());
+  
+      calcularColumnasFactura(tabla);
+      calcularTotalGeneral(tabla);
+    Controlador_pago.procesarPago(tabla, fecha, factura_n, V_Total);
+ 
     
-    // Validar el pago
+   
+    String totalText = V_Total.getText().trim();
+    
+    
+    if (totalText.isEmpty() || totalText.equals("0,00") || totalText.equals("0.00") || totalText.equals("0")) {
+        JOptionPane.showMessageDialog(null, 
+            "No hay productos en la factura o el total es 0.\nPor favor agregue productos antes de pagar.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    totalText = totalText.replace(",", ".");
+    
+    double total = 0.0;
+    try {
+        total = Double.parseDouble(totalText);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, 
+            "Error al leer el total. Por favor intente nuevamente.",
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+   
     boolean pagoExitoso = Controlador_pago.validarPago(total);
     
     if (pagoExitoso) {
-       
-    }   
-
-        
-        JOptionPane.showMessageDialog(null, "   Desea confirmar si pedido?"
-                );
+        JOptionPane.showMessageDialog(null, "Desea confirmar si pedido?");
+    }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -649,7 +654,7 @@ public class Vista_usuario extends javax.swing.JFrame {
         int seleccion = i.getSelectedRow();
        if(seleccion>-1){
   
-   ControladorPro.enlistarProductoAdmin();
+   
    llenarTablas.agregarAlCarrito(i, carrito);
  }else{
      JOptionPane.showMessageDialog(null, "Elija un producto para agregar al carrito");

@@ -85,7 +85,7 @@ public class Controlador_factura {
     
    
     public void imprimirPanelIndex3(JTabbedPane tabbedPane) {
-        imprimirPanel(tabbedPane, 3);
+        imprimirPanel(tabbedPane, 2);
     }
     
 }
